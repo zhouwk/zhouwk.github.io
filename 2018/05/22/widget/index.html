@@ -79,22 +79,22 @@
 
 
 
-<meta name="description" content="实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在连个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。">
+<meta name="description" content="实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在两个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。当时碰到的比较棘手的问题算只有两个：  iOS9 -&amp;">
 <meta name="keywords" content="widget">
 <meta property="og:type" content="article">
 <meta property="og:title" content="widget">
 <meta property="og:url" content="http://yoursite.com/2018/05/22/widget/index.html">
 <meta property="og:site_name" content="周伟克的博客">
-<meta property="og:description" content="实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在连个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。">
+<meta property="og:description" content="实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在两个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。当时碰到的比较棘手的问题算只有两个：  iOS9 -&amp;">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/widget/1.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/widget/2.png">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/widget/3.gif">
 <meta property="og:image" content="http://yoursite.com/2018/05/22/widget/4.png">
-<meta property="og:updated_time" content="2018-05-24T02:29:09.437Z">
+<meta property="og:updated_time" content="2018-05-24T03:01:34.656Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="widget">
-<meta name="twitter:description" content="实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在连个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。">
+<meta name="twitter:description" content="实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在两个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。当时碰到的比较棘手的问题算只有两个：  iOS9 -&amp;">
 <meta name="twitter:image" content="http://yoursite.com/2018/05/22/widget/1.png">
 
 
@@ -422,7 +422,7 @@
       
 
       
-        <p>实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在连个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。<br><a id="more"></a><br>当时碰到的比较棘手的问题算只有两个：</p>
+        <p>实际上这并不是我首次在项目中使用到widget，先后在两个项目中涉及到widget，首次使用应该是16年的项目中。说来有些惭愧，虽然已经在两个项目中使用widget，但是除了业务逻辑，针对widget的逻辑(基本是UI逻辑)都只是简单的粘贴复制，并没有对其中的相关API进行仔细分析，所以当时为了调节和需求对应的效果，盲目的模仿一些文章调节参数。<br>当时碰到的比较棘手的问题算只有两个：</p>
 <ol>
 <li>iOS9 -&gt; iOS10： 因为在iOS10之后，widget需要重新进行适配</li>
 <li>iOS10-&gt; Now: 折叠/展开按钮的状态控制。</li>
@@ -430,20 +430,20 @@
 <p>首先还是要提一下自己的一个关于widget生命周期的认知错误，挺长一段时间我都认为，widget在拉下来的时候并不会都执行<code>viewDidLoad()</code>,而是有点类似<code>UITabBarController&#39;chilerViewContoller</code>,只创建一次，后面每次点击item都是重新<code>appear</code>。基于这样的错误思维，实际开发中，基本没有在<code>viewDidLoad()</code>中加入什么逻辑，而是把相应的逻辑都转移到了<code>viewWillAppear()</code>中。</p>
 <p>在iOS10之后，苹果引入新的API来管理控制widgetUI，起决定作用的是一个枚举(<code>NCWidgetDisplayMode</code>)和对协议(<code>NCWidgetProviding</code>)的补充。</p>
 <h2 id="NCWidgetDisplayMode"><a href="#NCWidgetDisplayMode" class="headerlink" title="NCWidgetDisplayMode"></a>NCWidgetDisplayMode</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">@available(iOS 10.0, *)</span><br><span class="line">public enum NCWidgetDisplayMode : Int &#123;</span><br><span class="line">    </span><br><span class="line">    case compact // Fixed height</span><br><span class="line"></span><br><span class="line">    case expanded // Variable height</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-<p>与其对应的是<code>NSExtensionContext</code>下的两个optional扩展属性<code>widgetLargestAvailableDisplayMode</code>、<code>widgetActiveDisplayMode</code></p>
+<p>与其对应的是<code>NSExtensionContext</code>下的两个扩展属性<code>widgetLargestAvailableDisplayMode</code>、<code>widgetActiveDisplayMode</code></p>
 <h2 id="widgetLargestAvailableDisplayMode-ios10"><a href="#widgetLargestAvailableDisplayMode-ios10" class="headerlink" title="widgetLargestAvailableDisplayMode(ios10)"></a>widgetLargestAvailableDisplayMode(ios10)</h2><p>先看下官方的部分使用解释:<br><blockquote><p>Widgets can change the largest display mode they make available from the default ‘NCWidgetDisplayModeCompact’ by messaging the extension context.<br>Modifying this property more than once during the lifetime of the widget (perhaps due to changes in the amount of available content) is supported.</p>
 </blockquote><br>粗暴理解下，该属性用于控制widget的最大显示模式，并且可以根据显示内容的改变它的值。<br>默认<code>= .compact</code>，widget处于一种固定高度的状态110pt(并未在所有机型上验证)，且无法修改，widget会隐藏<span style="border: 2px solid orange">展开/折叠</span>按钮。于是就引出了上面提到的第一个问题，在<code>&lt;= iOS9</code>的时候，widget高度都是直接使用<code>preferredContentSize</code>控制，但是用户升级到<code>&gt;= iOS10</code>之后，<code>preferredContentSize</code>便无法控制它的高度，一直处于110pt状态，导致内容无法全部显示。<br>当<code>= .expanded</code>，此时widget处于高度可变的状态，且会显示<span style="border: 2px solid orange">展开/折叠</span>按钮，但是按钮当前的状态和它无关(这也是我曾经的一个误区)。<br>注意一点：如果手动设置该属性，必须要在后面设置相应状态的<code>preferredContentSize</code>属性，否则会出现异常的结果，见<a href="#坑">遇到的坑</a><br>所以可以根据需求进行相应的设置，如果高度固定，且只有110pt，那使用默认就好，否则只能设置<code>.expanded</code>。假设场景：最大会在widget中显示四行四列16个model的方格布局，在从服务器中拿到数据之后，如果不超过4个model，直接设置<code>.compact</code>隐藏掉<span style="border: 2px solid orange">展开/折叠</span>按钮，多于4个model的时候，设置<code>.expanded</code>显示<span style="border: 2px solid orange">展开/折叠</span>按钮。</p>
-<h2 id="widgetActiveDisplayMode-iOS10"><a href="#widgetActiveDisplayMode-iOS10" class="headerlink" title="widgetActiveDisplayMode(iOS10)"></a>widgetActiveDisplayMode(iOS10)</h2><p>这是个<code>read-only</code>属性，对应于widget所处于的状态和<span style="border: 2px solid orange">展开/折叠</span>按钮的状态，<code>= .compact</code>widget处于已折叠状态，按钮显示展开，<code>= .expanded</code>widget处于已展开的状态，按钮显示折叠。从现象上看它的值(状态)是被手机记录单独记录下来的，并不是每次拉下来widget都是回到默认值，而然保留了上次点击<span style="border: 2px solid orange">展开/折叠</span>按钮所触发的状态改变<br>假设场景：项目中可以在请求到服务器model后，根据该属性的值来决定要显示多个model，设置多大的<code>preferredContentSize</code>,<code>= .compact</code>显示部分，<code>= .expanded</code>显示全部。<br>但是如果处理不当，widget的状态可能会和你设置的响应状态下的<code>preferredContentSize</code>不匹配，见<a href="#坑">遇到的坑</a></p>
+<h2 id="widgetActiveDisplayMode-iOS10"><a href="#widgetActiveDisplayMode-iOS10" class="headerlink" title="widgetActiveDisplayMode(iOS10)"></a>widgetActiveDisplayMode(iOS10)</h2><p>这是个<code>read-only</code>属性，对应于widget所处于的状态和<span style="border: 2px solid orange">展开/折叠</span>按钮的状态，<code>= .compact</code>widget处于已折叠状态，按钮显示展开，<code>= .expanded</code>widget处于已展开的状态，按钮显示折叠。从现象上看它的值(状态)是被手机单独记录下来的，并不是每次拉下来widget都是回到默认值(事实上它也没有默认值)，而是保留了上次点击<span style="border: 2px solid orange">展开/折叠</span>按钮所触发的状态改变<br>假设场景：项目中可以在请求到服务器model后，根据该属性的值来决定要显示多少个model，设置多大的<code>preferredContentSize</code>,<code>= .compact</code>显示部分，<code>= .expanded</code>显示全部。<br>但是如果处理不当，widget的状态可能会和你设置的相应状态下的<code>preferredContentSize</code>不匹配，见<a href="#坑">遇到的坑</a></p>
 <h2 id="NCWidgetProviding"><a href="#NCWidgetProviding" class="headerlink" title="NCWidgetProviding"></a>NCWidgetProviding</h2><p>先看一下该协议在针对<code>&gt;= iOS10</code>进行的修改：<br>废弃了下面的接口：</p>
 <figure class="highlight plain"><figcaption><span>>=iOS10不会再被调用</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"> </span><br><span class="line">optional public func widgetMarginInsets(forProposedMarginInsets defaultMarginInsets: UIEdgeInsets) -&gt; UIEdgeInsets</span><br></pre></td></tr></table></figure>
-<p><code>&lt;=iOS10</code>widget是默认有内容margin调节的。<br><img src="/2018/05/22/widget/1.png" title="defaultMargin"><br><img src="/2018/05/22/widget/2.png" title="zeroMargin"></p>
+<p><code>&lt;iOS10</code>widget是默认有内容margin调节的。<br><img src="/2018/05/22/widget/1.png" title="defaultMargin"><br><img src="/2018/05/22/widget/2.png" title="zeroMargin"></p>
 <p>补充了新的接口<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">// If implemented, called when the active display mode changes.</span><br><span class="line">// The widget may wish to change its preferredContentSize to better accommodate the new display mode.</span><br><span class="line">@available(iOS 10.0, *)</span><br><span class="line">optional public func widgetActiveDisplayModeDidChange(_ activeDisplayMode: NCWidgetDisplayMode, withMaximumSize maxSize: CGSize)</span><br></pre></td></tr></table></figure><br>这就是点击<span style="border: 2px solid orange">展开/折叠</span>按钮产生的回调，根据新的<code>activeDisplayMode</code>设置<code>preferredContentSize</code></p>
 <h2 id="遇到的坑"><a href="#遇到的坑" class="headerlink" title="遇到的坑"></a>遇到的坑<span id="坑"></span></h2><ol>
 <li><p>点击<span style="border: 2px solid orange">展开/折叠</span>按钮触发回调</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">if activeDisplayMode == .compact &#123;</span><br><span class="line">      preferredContentSize = CGSize(width: viewWidth, height: 110)</span><br><span class="line">    &#125; else &#123;</span><br><span class="line">      setFullSize()</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 <p>我们已经知道在<code>= .compact</code>模式下，widget的高度是定死110pt的，但是在回调中第二行的代码不可少，缺少的话会产生一种情况：<img src="/2018/05/22/widget/3.gif" title="异常情况"><br>从GIF中看出，即使没有第二行代码，第一次点击折叠的时候，widget正常折叠会110pt，但是接下来的点击<span style="border: 2px solid orange">展开/折叠</span>，虽然<code>activeDisplayMode</code>在切换，但是<code>preferredContentSize</code>已经失效。</p>
 </li>
-<li><p>和情况1相似，只不过触发点不同。假设场景：widget最多显示四行四列16个model，每四个model widget增加一个高度，不超过四个model的时候隐藏<span style="border: 2px solid orange">展开/折叠</span>按钮，否则显示出来。从服务请求到model数据之后，设置<code>widgetLargestAvailableDisplayMode</code>控制按钮的显示，但是一定要在之后设置响应状态的contentSize，且最好保持这个先后顺序,开发中偶然没有按照这个先后顺序，出现了<code>preferredContentSize</code>无效的情况。</p>
+<li><p>和情况1相似，只不过触发点不同。假设场景：widget最多显示四行四列16个model，每四个model widget增加一个高度，不超过四个model的时候隐藏<span style="border: 2px solid orange">展开/折叠</span>按钮，否则显示出来。从服务请求到model数据之后，设置<code>widgetLargestAvailableDisplayMode</code>控制按钮的显示，但是一定要在之后设置响应状态的<code>preferredContentSize</code>，且最好保持这个先后顺序,开发中偶然没有按照这个先后顺序，出现了<code>preferredContentSize</code>无效的情况。</p>
 <figure class="highlight plain"><figcaption><span>1-5和6-10顺序</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">if dataSource.count &lt;= 4 &#123;</span><br><span class="line">    extensionContext?.widgetLargestAvailableDisplayMode = .compact</span><br><span class="line">&#125; else &#123;</span><br><span class="line">     extensionContext?.widgetLargestAvailableDisplayMode = .expanded</span><br><span class="line">&#125;</span><br><span class="line">if extensionContext?.widgetActiveDisplayMode == .compact &#123;</span><br><span class="line">    preferredContentSize = CGSize(width: viewWidth, height: 110)</span><br><span class="line">&#125; else &#123;</span><br><span class="line">    preferredContentSize = CGSize(width: viewWidth, height: 110 * rowCount)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
 <li><p>Widget也是一个单独的APP，但是无法进行debug，设置debugpoint，如果出现bug的话会显示<em>无法加载</em>，目前能想到的debug方式是添加<code>UIlabel</code>显示log。</p>
@@ -452,7 +452,8 @@
 </li>
 </ol>
 <hr>
-<p>在<a href="https://stackoverflow.com/questions/44806766/swift-3-0-today-extensions-compact-mode-with-dynamic-height/45211809#45211809" target="_blank" rel="noopener">stackoverflow</a>看到有人提出这样问题：在不显示<span style="border: 2px solid orange">展开/折叠</span>按钮的情况下，给widget设置另外一个高度(非默认110pt)的，并且提供了一个实现这种逻辑的APP截图，我也非常好奇怎么实现的。<br><img src="/2018/05/22/widget/4.png"></p>
+<p>在<a href="https://stackoverflow.com/questions/44806766/swift-3-0-today-extensions-compact-mode-with-dynamic-height/45211809#45211809" target="_blank" rel="noopener">stackoverflow</a>看到有人提出这样问题：在不显示<span style="border: 2px solid orange">展开/折叠</span>按钮的情况下，给widget设置另外一个高度(非默认110pt)的，并且提供了一个已经实现这种逻辑的APP截图，我也非常好奇怎么实现的。<br><img src="/2018/05/22/widget/4.png"></p>
+<a id="more"></a>
 
       
     </div>
