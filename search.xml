@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[ReactiveCocoa_Signal]]></title>
+    <url>%2F2018%2F06%2F25%2FReactiveCocoa-Signal%2F</url>
+    <content type="text"></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>ReactiveCocoa</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[UITextField]]></title>
     <url>%2F2018%2F06%2F15%2FUITextField%2F</url>
     <content type="text"><![CDATA[123override func textRect(forBounds bounds: CGRect) -&gt; CGRect &#123; return bounds.insetBy(dx: 10, dy: 10)&#125; 重写该方法用于调整文本的显示区域(非编辑状态)，参数中bounds的解释是The bounding rectangle of the receiver.但是并不是很清楚和谁有关系，测试案例中输出结果有时候为文本框的.bounds,更多是(0, 0, 100, 100)重写该方法之后，会影响到文本框在编辑状态下的展现形式所以编辑状态下的本文区域也要做同样的设置123override func editingRect(forBounds bounds: CGRect) -&gt; CGRect &#123; return bounds.insetBy(dx: 10, dy: 10)&#125;同时，也可以重写其他如下方法来调节相应内容的显示区域12345678910- (CGRect)borderRectForBounds:(CGRect)bounds;- (CGRect)textRectForBounds:(CGRect)bounds;- (CGRect)placeholderRectForBounds:(CGRect)bounds;- (CGRect)editingRectForBounds:(CGRect)bounds;- (CGRect)clearButtonRectForBounds:(CGRect)bounds;- (CGRect)leftViewRectForBounds:(CGRect)bounds;- (CGRect)rightViewRectForBounds:(CGRect)bounds;- (void)drawTextInRect:(CGRect)rect;- (void)drawPlaceholderInRect:(CGRect)rect; CGRect.insertBy(dx, dy) 相对一个CGRect调节偏移，从而形成一个新的CGRect12345let rect = CGRect(x: 10, y: 10, width: 100, height: 100)print(rect.insetBy(dx: 10, dy: 10))//(20.0, 20.0, 80.0, 80.0)print(rect.insetBy(dx: -10, dy: -10))//(0.0, 0.0, 120.0, 120.0)]]></content>
