@@ -1,9 +1,32 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[PHPStorm_[08S01]]]></title>
+    <url>%2F2018%2F06%2F28%2FPHPStorm-08S01%2F</url>
+    <content type="text"><![CDATA[使用MAMP + PHPStorm搭建PHP开发环境，在PHPStrom连接MySql数据库的时候出现了[08S01]错误码，错误信息是Communications link failure，详细信息如下图看描述信息是连接不上MySql，但是MAMP中已经开启了MySql服务，在PHPStorm的数据配置比如端口号、数据库账号、数据库密码都是对的，而且在PHPMYadmin中是可以正常操作MySQL的，也可以使用PHP代码连接操作MySQL。由于本职不是后台PHP开发，临时抽调过来的，所以遇到错误还是挺懵的。于是上网搜了一通，但是网上大多数对这个错误的描述是：已经在跑的数据库，每隔8小时会出现这个错误，是使用连接池出现的，短连接很难出现，(对连接池、短连接的概念目前并不是很清晰)。MySQL的服务器如果连接空闲8个小时(28800秒)就会任务这个连接已经不用失效了，然后主动断开，所以解决方案是打开MySQL配置文件my.ini设置wait_timeout一个更长的时间段。虽然错误码和错误信息和我碰到的都一样，但是很明显情况不同，我这是一直连接不上。后来在MAMP中MySQL的配置项，找到了一个Allow network access mysql的选项，允许网络远程访问，尝试勾选，并且重启服务器，再次尝试在PHPStorm中连接数据库，竟然okay了。但是仍然有一点想不通，很明显这个选项是允许网络远程访问数据库的，但是我在PHPStorm的连接方式是localhost本地的，直观感觉上不应该和这个选项有关系。]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>PHPStorm</tag>
+        <tag>MySql</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[ReactiveCocoa_Signal]]></title>
     <url>%2F2018%2F06%2F25%2FReactiveCocoa-Signal%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。事件流是创造者驱动、基于推送的，推送就是前面提到的把事件推送到所有的观察者，创造者即是Signal Producer，简单理解它就是用来创造、改变事件流的，后续会有描述。所有的观察者只能观察，并不能对数据流产生副作用，且一个事件流所有的观察者所接收到的事件都是一样的。Signal提供了两种创建方式Sigal.pip()和Signal.init(),test112345func text1() &#123; let (signal, observe) = Signal&lt;String, NoError&gt;.pipe() &#125; RAC对观察者Observers的定义是：事件流推送事件的任意对象，这些对象正在等待接受、或者可以等待接受事件流所推送的事件，可以通过Signal.observe或者SignalProducer.start隐式创建一个观察者。]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>ReactiveCocoa</tag>
+      </tags>
+  </entry>
+  <entry>
+    <title><![CDATA[ReactiveCocoa_Event]]></title>
+    <url>%2F2018%2F06%2F24%2FReactiveCocoa-Event%2F</url>
+    <content type="text"><![CDATA[需要重新整理 Event是RAC中事件流所传输的对象，有如下几种：value Event： 值事件，我们可以通过值事件来告诉观察者产生的数据，比如从服务器请求的数据、进度、模型数组等等。我们再创建事件流的时候会限定其类型，所以这些值事件的value必须同类型。failure Event：失败事件，我们可以通过失败事件来告诉观察者发生了什么错误，通过.error参数来具体描述这个错误，用代码来简单实现一个socket异常断开的失败事件:123let (signal, observe) = Signal&lt;String, NSError&gt;.pipe()let error = NSError(domain: &quot;domain&quot;, code: -1, userInfo: [&quot;log&quot;: &quot;socket disconnected from host&quot;])observe.send(error: error)RAC对失败事件的处理和普通的异常一样，一旦发生，后续的任何事件就都不会被发送到事件流中，所以谨慎使用。如果希望即使发生错误后续的事件还能正常发送，那么建议使用合适的值事件来间接描述这个错误。如果不允许发生失败事件，那么我们再在创建事件流的时候使用NoError类型，这样就保证了事件流中不会存在失败事件。completed Event：成功事件，我们可以发送一个成功事件来告诉观察者操作已经成功完成比如下载完成，或者这个数据流被正常终止。成功事件发生之后，后续的事件将不会被发送到事件流中推送给观察者，所以确保与此有关的所有操作都成功之后在发送成功事件。interrupted Event：中断事件，用于取消已经开始的操作，既非成功、也非失败。 事件流有若干个值事件和最多一个终止事件组组成。]]></content>
       <categories>
         <category>iOS</category>
       </categories>
