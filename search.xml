@@ -1,6 +1,17 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[阿里云Error503]]></title>
+    <url>%2F2018%2F07%2F03%2F%E9%98%BF%E9%87%8C%E4%BA%91Error503%2F</url>
+    <content type="text"><![CDATA[在阿里云申请集成LAMP环境的centOS主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的index.php时候，出现了503错误，错误信息如下Service Unavailable The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later. 但是目录下的html文件是可以正常通过IP地址访问的，通过提交阿里云工单得知，是ECS服务器的php-fpm进程未开启导致不能解析PHP文件。 ssh远程登录ESC服务器后，输入指令/etc/init.d/php-fpm start即可。 导致该问题的可能原因是做了如下操作：ECS主机的LAMP的PHP版本有些低(5.6)，于是删除了PHP5.6，然后重新安装了7.1，可能删除操作导致了php-fpm被关了。 PHP7.1步骤如下：123456789101112131415161718# 查看当前PHP版本php -v# 检查当前PHP的安装包yum list installed | grep php# 删除当前版本的PHPyum remove php*#添加第三方yum源，我们选择webtatic库rpm -Uvh https://mirror.webtatic.com/yum/el7/epel-release.rpmrpm -Uvh https://mirror.webtatic.com/yum/el7/webtatic-release.rpm# 查看yum源是否有PHP7.1的安装包yum list php71yum install -y php71w-fpm php71w-opcache php71w-cli php71w-gd php71w-imap php71w-mysqlnd php71w-mbstring php71w-mcrypt php71w-pdo php71w-pecl-apcu php71w-pecl-mongodb php71w-pecl-redis php71w-pgsql php71w-xml php71w-xmlrpc php71w-devel mod_php71w 参考链接：CentOs7.x下升级PHP版本 另附：非镜像版安装LAMP]]></content>
+      <categories>
+        <category>PHP</category>
+      </categories>
+      <tags>
+        <tag>阿里云虚拟主机</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PHPStorm_[08S01]]]></title>
     <url>%2F2018%2F06%2F28%2FPHPStorm-08S01%2F</url>
     <content type="text"><![CDATA[使用MAMP + PHPStorm搭建PHP开发环境，在PHPStrom连接MySql数据库的时候出现了[08S01]错误码，错误信息是Communications link failure，详细信息如下图看描述信息是连接不上MySql，但是MAMP中已经开启了MySql服务，在PHPStorm的数据配置比如端口号、数据库账号、数据库密码都是对的，而且在PHPMYadmin中是可以正常操作MySQL的，也可以使用PHP代码连接操作MySQL。由于本职不是后台PHP开发，临时抽调过来的，所以遇到错误还是挺懵的。于是上网搜了一通，但是网上大多数对这个错误的描述是：已经在跑的数据库，每隔8小时会出现这个错误，是使用连接池出现的，短连接很难出现，(对连接池、短连接的概念目前并不是很清晰)。MySQL的服务器如果连接空闲8个小时(28800秒)就会任务这个连接已经不用失效了，然后主动断开，所以解决方案是打开MySQL配置文件my.ini设置wait_timeout一个更长的时间段。虽然错误码和错误信息和我碰到的都一样，但是很明显情况不同，我这是一直连接不上。后来在MAMP中MySQL的配置项，找到了一个Allow network access mysql的选项，允许网络远程访问，尝试勾选，并且重启服务器，再次尝试在PHPStorm中连接数据库，竟然okay了。但是仍然有一点想不通，很明显这个选项是允许网络远程访问数据库的，但是我在PHPStorm的连接方式是localhost本地的，直观感觉上不应该和这个选项有关系。]]></content>
