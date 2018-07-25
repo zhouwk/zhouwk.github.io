@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="在阿里云申请集成LAMP环境的centOS主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的index.php时候，出现了503错误，错误信息如下Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or cap">
+<meta name="description" content="12345678&amp;#123;  &amp;quot;code&amp;quot;: 0,  &amp;quot;data&amp;quot;: &amp;#123;    &amp;quot;token&amp;quot;: &amp;quot;d1a7a956a63c14bb0d92d4208fd256fc&amp;quot;,    &amp;quot;expireTime&amp;quot;: 1534648353  &amp;#125;,  &amp;quot;message&amp;quot;:">
 <meta name="keywords" content="阿里云虚拟主机">
 <meta property="og:type" content="article">
 <meta property="og:title" content="阿里云Error503">
 <meta property="og:url" content="http://yoursite.com/2018/07/03/阿里云Error503/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="在阿里云申请集成LAMP环境的centOS主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的index.php时候，出现了503错误，错误信息如下Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or cap">
+<meta property="og:description" content="12345678&amp;#123;  &amp;quot;code&amp;quot;: 0,  &amp;quot;data&amp;quot;: &amp;#123;    &amp;quot;token&amp;quot;: &amp;quot;d1a7a956a63c14bb0d92d4208fd256fc&amp;quot;,    &amp;quot;expireTime&amp;quot;: 1534648353  &amp;#125;,  &amp;quot;message&amp;quot;:">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-07-03T15:20:24.347Z">
+<meta property="og:updated_time" content="2018-07-20T03:20:17.416Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="阿里云Error503">
-<meta name="twitter:description" content="在阿里云申请集成LAMP环境的centOS主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的index.php时候，出现了503错误，错误信息如下Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or cap">
+<meta name="twitter:description" content="12345678&amp;#123;  &amp;quot;code&amp;quot;: 0,  &amp;quot;data&amp;quot;: &amp;#123;    &amp;quot;token&amp;quot;: &amp;quot;d1a7a956a63c14bb0d92d4208fd256fc&amp;quot;,    &amp;quot;expireTime&amp;quot;: 1534648353  &amp;#125;,  &amp;quot;message&amp;quot;:">
 
 
 
@@ -417,7 +417,8 @@
       
 
       
-        <p>在阿里云申请集成<em>LAMP</em>环境的<em>centOS</em>主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的<code>index.php</code>时候，出现了503错误，错误信息如下<br><blockquote><p>Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.  </p>
+        <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;code&quot;: 0,</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;token&quot;: &quot;d1a7a956a63c14bb0d92d4208fd256fc&quot;,</span><br><span class="line">    &quot;expireTime&quot;: 1534648353</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;message&quot;: &quot;ok&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在阿里云申请集成<em>LAMP</em>环境的<em>centOS</em>主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的<code>index.php</code>时候，出现了503错误，错误信息如下<br><blockquote><p>Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.  </p>
 </blockquote></p>
 <p>但是目录下的html文件是可以正常通过IP地址访问的，通过提交阿里云工单得知，是ECS服务器的<em>php-fpm</em>进程未开启导致不能解析PHP文件。 <a id="more"></a><br>ssh远程登录ESC服务器后，输入指令<code>/etc/init.d/php-fpm start</code>即可。<br>当然也可以通过指令<code>/etc/init.d/php-fpm stop</code>来触发这个问题。</p>
 <p>导致该问题的可能原因是做了如下操作：ECS主机的<em>LAMP</em>的PHP版本有些低(5.6)，于是删除了PHP5.6，然后重新安装了7.1，可能删除操作导致了<em>php-fpm</em>被关了。</p>
@@ -463,6 +464,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/07/20/ESC-centOS下file-put-contents失败/" rel="prev" title="ESC_centOS下file_put_contents失败">
+                ESC_centOS下file_put_contents失败 <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -542,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -564,7 +569,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

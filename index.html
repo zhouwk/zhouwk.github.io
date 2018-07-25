@@ -307,6 +307,160 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/20/ESC-centOS下file-put-contents失败/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/07/20/ESC-centOS下file-put-contents失败/" itemprop="url">ESC_centOS下file_put_contents失败</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-07-20T15:01:06+08:00">
+                2018-07-20
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/07/20/ESC-centOS下file-put-contents失败/" class="leancloud_visitors" data-flag-title="ESC_centOS下file_put_contents失败">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;code&quot; : 1,</span><br><span class="line">  &quot;msg&quot; : &quot;该订单不存在&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>问题出现环境：ECS + centOS + LAMP<br>写微信小程序后台的时候，需要把一些数据存储到一个文件中管理(<code>file_put_contents</code>)，在本地测试的时候一切ok，但是代码上传到阿里云服务器的时候，这个时候就不行了，数据无法写入文件中。<br>百度发现是权限问题，在阿里云后台远程连接虚拟服务器，终端找到该文件，<code># chmod 777 文件名</code>一切ok。<br>开发过程中发现，分配父级文件夹777权限，其子文件并不会有777权限。<br>其实中间也是一直在做一件蠢事儿，在本地写完代码之后，图省事直接把整个项目扔进云服务器了，导致之前的项目被覆盖了，然后这个授权问题重复多次出现。因为这是第一次算是比较认真的写PHP后台，所以很多思维都不到，比如这样做会把生产环境下记录的文件也给覆盖掉，这就罪过大了。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/07/03/阿里云Error503/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -410,7 +564,8 @@
 
       
         
-          <p>在阿里云申请集成<em>LAMP</em>环境的<em>centOS</em>主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的<code>index.php</code>时候，出现了503错误，错误信息如下<br><blockquote><p>Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.  </p>
+          <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">&#123;</span><br><span class="line">  &quot;code&quot;: 0,</span><br><span class="line">  &quot;data&quot;: &#123;</span><br><span class="line">    &quot;token&quot;: &quot;d1a7a956a63c14bb0d92d4208fd256fc&quot;,</span><br><span class="line">    &quot;expireTime&quot;: 1534648353</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;message&quot;: &quot;ok&quot;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+<p>在阿里云申请集成<em>LAMP</em>环境的<em>centOS</em>主机，在配置好相应的安全组、安全规则之后，通过浏览器IP地址访问项目发布目录下的<code>index.php</code>时候，出现了503错误，错误信息如下<br><blockquote><p>Service Unavailable  The server is temporarily unable to service your request due to maintenance downtime or capacity problems. Please try again later.  </p>
 </blockquote></p>
 <p>但是目录下的html文件是可以正常通过IP地址访问的，通过提交阿里云工单得知，是ECS服务器的<em>php-fpm</em>进程未开启导致不能解析PHP文件。
           <!--noindex-->
@@ -1603,7 +1758,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">9</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1625,7 +1780,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">8</span>
+                  <span class="site-state-item-count">10</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
