@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ReactiveCocoa," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。">
-<meta name="keywords" content="ReactiveCocoa">
+<meta name="description" content="为什么要写这篇笔记呢，网上有很多关于MAC配置虚拟主机的帖子，但是就是不知道怎么回事儿(其实新手太菜、分析不了错误)，我在我的电脑是就是配置失败，对着网上的帖子(其实教程都差不多)一通该相关的配置文件，一直不行，就在准备通读Apache的官方文档的时候，竟然配置okay了。 MAC下配置相关的文件： 安装目录：/etc/apache2 域名：IP的对应文件：/etc/hosts Apache配置文">
+<meta name="keywords" content="周伟克的个人笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReactiveCocoa_Signal">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/ReactiveCocoa-Signal/index.html">
+<meta property="og:title" content="MAC配置虚拟主机">
+<meta property="og:url" content="http://yoursite.com/2018/08/03/MAC配置虚拟主机/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。">
+<meta property="og:description" content="为什么要写这篇笔记呢，网上有很多关于MAC配置虚拟主机的帖子，但是就是不知道怎么回事儿(其实新手太菜、分析不了错误)，我在我的电脑是就是配置失败，对着网上的帖子(其实教程都差不多)一通该相关的配置文件，一直不行，就在准备通读Apache的官方文档的时候，竟然配置okay了。 MAC下配置相关的文件： 安装目录：/etc/apache2 域名：IP的对应文件：/etc/hosts Apache配置文">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T05:53:39.729Z">
+<meta property="og:image" content="http://yoursite.com/2018/08/03/MAC配置虚拟主机/1.png">
+<meta property="og:updated_time" content="2018-08-03T10:09:57.910Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactiveCocoa_Signal">
-<meta name="twitter:description" content="需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。">
+<meta name="twitter:title" content="MAC配置虚拟主机">
+<meta name="twitter:description" content="为什么要写这篇笔记呢，网上有很多关于MAC配置虚拟主机的帖子，但是就是不知道怎么回事儿(其实新手太菜、分析不了错误)，我在我的电脑是就是配置失败，对着网上的帖子(其实教程都差不多)一通该相关的配置文件，一直不行，就在准备通读Apache的官方文档的时候，竟然配置okay了。 MAC下配置相关的文件： 安装目录：/etc/apache2 域名：IP的对应文件：/etc/hosts Apache配置文">
+<meta name="twitter:image" content="http://yoursite.com/2018/08/03/MAC配置虚拟主机/1.png">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/25/ReactiveCocoa-Signal/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/03/MAC配置虚拟主机/"/>
 
 
 
 
 
-  <title>ReactiveCocoa_Signal | zhouwk的个人笔记</title>
+  <title>MAC配置虚拟主机 | zhouwk的个人笔记</title>
   
 
 
@@ -307,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/ReactiveCocoa-Signal/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/MAC配置虚拟主机/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouwk">
@@ -324,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ReactiveCocoa_Signal</h1>
+          <h1 class="post-title" itemprop="name headline">MAC配置虚拟主机</h1>
         
 
         <div class="post-meta">
@@ -336,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T09:57:23+08:00">
-                2018-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T14:03:38+08:00">
+                2018-08-03
               </time>
             
 
@@ -347,28 +349,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -377,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/25/ReactiveCocoa-Signal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/25/ReactiveCocoa-Signal/" itemprop="commentsCount"></span>
+                <a href="/2018/08/03/MAC配置虚拟主机/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/03/MAC配置虚拟主机/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -386,7 +366,7 @@
 
           
           
-             <span id="/2018/06/25/ReactiveCocoa-Signal/" class="leancloud_visitors" data-flag-title="ReactiveCocoa_Signal">
+             <span id="/2018/08/03/MAC配置虚拟主机/" class="leancloud_visitors" data-flag-title="MAC配置虚拟主机">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,10 +397,41 @@
       
 
       
-        <p><span style="color:red">需要重新整理</span></p>
-<p>本文是对<a href="https://github.com/ReactiveCocoa/ReactiveSwift/blob/master/Documentation/FrameworkOverview.md#signals" target="_blank" rel="noopener">Reactive_event</a>初步归纳记录，<span style="color:red">理解较浅、可能有误、后续完善</span>。</p>
-<p><em>Signal</em>在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为<a href="#Observers">观察者</a>，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装<em>Event</em>类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。<a id="more"></a><br>事件流是<em>创造者驱动、基于推送</em>的，<em>推送</em>就是前面提到的把事件推送到所有的观察者，<em>创造者</em>即是<em>Signal Producer</em>，简单理解它就是用来创造、改变事件流的，后续会有描述。所有的观察者只能观察，并不能对数据流产生副作用，且一个事件流所有的观察者所接收到的事件都是一样的。<br><em>Signal</em>提供了两种创建方式<code>Sigal.pip()</code>和<em>Signal.init()</em>,<br><figure class="highlight plain"><figcaption><span>test1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func text1() &#123;</span><br><span class="line">        </span><br><span class="line">   let (signal, observe) = Signal&lt;String, NoError&gt;.pipe()</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><span id="Observers">RAC对观察者<em>Observers</em>的定义是：事件流推送事件的任意对象，这些对象正在等待接受、或者可以等待接受事件流所推送的事件，可以通过<code>Signal.observe</code>或者<code>SignalProducer.start</code>隐式创建一个观察者。</span></p>
+        <p>为什么要写这篇笔记呢，网上有很多关于MAC配置虚拟主机的帖子，但是就是不知道怎么回事儿(其实新手太菜、分析不了错误)，我在我的电脑是就是配置失败，对着网上的帖子(其实教程都差不多)一通该相关的配置文件，一直不行，就在准备通读Apache的官方文档的时候，竟然配置okay了。</p>
+<h2 id="MAC下配置相关的文件："><a href="#MAC下配置相关的文件：" class="headerlink" title="MAC下配置相关的文件："></a>MAC下配置相关的文件：</h2><ol>
+<li>安装目录：/etc/apache2</li>
+<li>域名：IP的对应文件：/etc/hosts</li>
+<li>Apache配置文件：/etc/apache2/httpd.conf</li>
+<li>虚拟主机节点配置文件：/etc/apache2/extra/httpd-vhosts</li>
+<li>默认根目录：/Library/WebServer/Documents</li>
+</ol>
+<h2 id="配置hosts文件"><a href="#配置hosts文件" class="headerlink" title="配置hosts文件"></a>配置hosts文件</h2><p>客户端在浏览器里面输入域名的时候，有先在本机的此文件找对应的ip地址，如果找不到，去DNS找对应的ip地址，找得到的话就访问ip。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1	localhost</span><br><span class="line">255.255.255.255	broadcasthost</span><br><span class="line">::1             localhost </span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br></pre></td></tr></table></figure><br>把<em>127.0.0.1</em>对应的localhost改成<em><a href="http://www.zwk.com" target="_blank" rel="noopener">www.zwk.com</a></em></p>
+<h2 id="配置httpd-conf"><a href="#配置httpd-conf" class="headerlink" title="配置httpd.conf"></a>配置httpd.conf</h2><ol>
+<li><p><span id="ServerRoot">ServerRoot</span>“/etc”：</p>
+<blockquote><p>ServerRoot: The top of the directory tree under which the server’s<br>configuration, error, and log files are kept.</p>
+</blockquote>
+<p>包含服务器配置文件、错误文件、日志文件的目录，不要在后面追加<span style="color:red">/，比如/etc/</span></p>
+<img src="/2018/08/03/MAC配置虚拟主机/1.png" title="ServerRoot">
+</li>
+<li><p>Listen:绑定IP、端口，比如<em>Listen 8080</em>在<em>httpd-vhosts</em>文件也有ip-port的绑定，在没有启用<em>httpd-vhosts</em>文件的情况下，我取消ip地址的绑定，出现localhost不能访问的问题。</p>
+</li>
+<li><p><span id="LoadModule_error"></span>LoadModule moduleName path: 加载功能模块，这是我一直搭建虚拟主机失败的最主要问题。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LoadModule authn_file_module libexec/apache2/mod_authn_file.so</span><br><span class="line">#LoadModule authn_dbm_module libexec/apache2/mod_authn_dbm.so</span><br><span class="line">#LoadModule authn_anon_module libexec/apache2/mod_authn_anon.so</span><br><span class="line">              ...........</span><br></pre></td></tr></table></figure>
+<p>默认的是一个这样的模块列表，路径都是在libexec/apache2/下，但是实际的完整路径是/usr/libexec/apache2/moduleName，然后就一直报错说这里面的模块找不到。</p>
+</li>
+<li><p>ServerAdmin 出现错误的通知邮箱。</p>
+</li>
+<li>配置项目根目录<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot &quot;/Library/WebServer/Documents&quot;</span><br><span class="line"># 该目录的访问权限配置</span><br><span class="line">&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;</span><br><span class="line">    Options All</span><br><span class="line">    AllowOverride All</span><br><span class="line">    Order allow,deny</span><br><span class="line">    Allow from all</span><br><span class="line">&lt;/Directory&gt;</span><br></pre></td></tr></table></figure>
+6.配置默认页面<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
+</li>
+</ol>
+<p>理论上说，在项目根目录下放一个<em>index.html</em>文件，走完该节的配置，应该能在浏览器访问<a href="http://www.zwk.com:8080" target="_blank" rel="noopener">http://www.zwk.com:8080</a> 访问到<em>index.html</em></p>
+<h2 id="很好用的apachectl-configtest"><a href="#很好用的apachectl-configtest" class="headerlink" title="很好用的apachectl configtest"></a>很好用的apachectl configtest</h2><p>该终端指令可以检测出配置文件的语法错误(比如<em>httpd.conf</em>、<em>httpd-vhosts</em>)。<br><a href="#LoadModule_error">模块路径错误导致的失败</a>所提示的错误如下：<br><blockquote><p>httpd: Syntax error on line 67 of /private/etc/apache2/httpd.conf: Cannot load libexec/apache2/mod_authn_file.so into server: dlopen(/etc/libexec/apache2/mod_authn_file.so, 10): image not found</p>
+</blockquote><br>我们在故意制造一个问题，在根目录访问权限配置<a href="#ServerRoot">ServerRoot</a>改成<em>/etc2</em>终端输入该命令，输出错误如下：<br><blockquote><p>httpd: Syntax error on line 31 of /private/etc/apache2/httpd.conf: ServerRoot must be a valid directory</p>
+</blockquote></p>
+<h2 id="配置httpd-vhosts文件"><a href="#配置httpd-vhosts文件" class="headerlink" title="配置httpd-vhosts文件"></a>配置httpd-vhosts文件</h2><p>先打开<em>httpd.conf**httpd-vhost</em>的注释<br><blockquote><p>#Virtual hosts</p>
+<p>#Include /private/etc/apache2/extra/httpd-vhosts.conf</p>
+</blockquote></p>
 
       
     </div>
@@ -436,12 +447,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/ReactiveCocoa/" rel="tag"># ReactiveCocoa</a>
-          
-        </div>
-      
 
       
       
@@ -451,8 +456,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/24/ReactiveCocoa-Event/" rel="next" title="ReactiveCocoa_Event">
-                <i class="fa fa-chevron-left"></i> ReactiveCocoa_Event
+              <a href="/2018/08/02/PHP文件操作笔记/" rel="next" title="PHP文件操作笔记">
+                <i class="fa fa-chevron-left"></i> PHP文件操作笔记
               </a>
             
           </div>
@@ -460,10 +465,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/28/PHPStorm-08S01/" rel="prev" title="PHPStorm_[08S01]">
-                PHPStorm_[08S01] <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -523,8 +524,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -618,6 +628,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC下配置相关的文件："><span class="nav-number">1.</span> <span class="nav-text">MAC下配置相关的文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置hosts文件"><span class="nav-number">2.</span> <span class="nav-text">配置hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置httpd-conf"><span class="nav-number">3.</span> <span class="nav-text">配置httpd.conf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#很好用的apachectl-configtest"><span class="nav-number">4.</span> <span class="nav-text">很好用的apachectl configtest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置httpd-vhosts文件"><span class="nav-number">5.</span> <span class="nav-text">配置httpd-vhosts文件</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       

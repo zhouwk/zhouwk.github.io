@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ReactiveCocoa," />
+  <meta name="keywords" content="文件操作," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。">
-<meta name="keywords" content="ReactiveCocoa">
+<meta name="description" content="读w3c文件部分和一些博客之后，记录个人认为的可能比较常用的函数。 打开文件(创建)通过fopen($filename, $mode, $use_include_path = null, $context = null)打开文件，成功则返回文件句柄handle，$mode的值有如下4组：  r/r+，分别对应只读/读写，文件指针在开头，如果文件存在，不会清空该文件(r+)，如文件不存在，不会创建该">
+<meta name="keywords" content="文件操作">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReactiveCocoa_Signal">
-<meta property="og:url" content="http://yoursite.com/2018/06/25/ReactiveCocoa-Signal/index.html">
+<meta property="og:title" content="PHP文件操作笔记">
+<meta property="og:url" content="http://yoursite.com/2018/08/02/PHP文件操作笔记/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。">
+<meta property="og:description" content="读w3c文件部分和一些博客之后，记录个人认为的可能比较常用的函数。 打开文件(创建)通过fopen($filename, $mode, $use_include_path = null, $context = null)打开文件，成功则返回文件句柄handle，$mode的值有如下4组：  r/r+，分别对应只读/读写，文件指针在开头，如果文件存在，不会清空该文件(r+)，如文件不存在，不会创建该">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T05:53:39.729Z">
+<meta property="og:updated_time" content="2018-08-02T10:09:17.878Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactiveCocoa_Signal">
-<meta name="twitter:description" content="需要重新整理 本文是对Reactive_event初步归纳记录，理解较浅、可能有误、后续完善。 Signal在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为观察者，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装Event类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。">
+<meta name="twitter:title" content="PHP文件操作笔记">
+<meta name="twitter:description" content="读w3c文件部分和一些博客之后，记录个人认为的可能比较常用的函数。 打开文件(创建)通过fopen($filename, $mode, $use_include_path = null, $context = null)打开文件，成功则返回文件句柄handle，$mode的值有如下4组：  r/r+，分别对应只读/读写，文件指针在开头，如果文件存在，不会清空该文件(r+)，如文件不存在，不会创建该">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/25/ReactiveCocoa-Signal/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/08/02/PHP文件操作笔记/"/>
 
 
 
 
 
-  <title>ReactiveCocoa_Signal | zhouwk的个人笔记</title>
+  <title>PHP文件操作笔记 | zhouwk的个人笔记</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/25/ReactiveCocoa-Signal/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/02/PHP文件操作笔记/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouwk">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ReactiveCocoa_Signal</h1>
+          <h1 class="post-title" itemprop="name headline">PHP文件操作笔记</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-25T09:57:23+08:00">
-                2018-06-25
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-02T10:43:23+08:00">
+                2018-08-02
               </time>
             
 
@@ -359,8 +359,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
                   </a>
                 </span>
 
@@ -377,8 +377,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/25/ReactiveCocoa-Signal/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/25/ReactiveCocoa-Signal/" itemprop="commentsCount"></span>
+                <a href="/2018/08/02/PHP文件操作笔记/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/02/PHP文件操作笔记/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -386,7 +386,7 @@
 
           
           
-             <span id="/2018/06/25/ReactiveCocoa-Signal/" class="leancloud_visitors" data-flag-title="ReactiveCocoa_Signal">
+             <span id="/2018/08/02/PHP文件操作笔记/" class="leancloud_visitors" data-flag-title="PHP文件操作笔记">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,10 +417,37 @@
       
 
       
-        <p><span style="color:red">需要重新整理</span></p>
-<p>本文是对<a href="https://github.com/ReactiveCocoa/ReactiveSwift/blob/master/Documentation/FrameworkOverview.md#signals" target="_blank" rel="noopener">Reactive_event</a>初步归纳记录，<span style="color:red">理解较浅、可能有误、后续完善</span>。</p>
-<p><em>Signal</em>在RAC中用来表示正在进行中的事件流，比如通知、用户输入等等，使用者可以注册对事件流的观察成为<a href="#Observers">观察者</a>，观察事件流中所包含的事件。随着任务的进行，这些任务的状态或结果被封装<em>Event</em>类型，并发送到事件流中，然后事件流再把这些事件推送给所有的观察者。<a id="more"></a><br>事件流是<em>创造者驱动、基于推送</em>的，<em>推送</em>就是前面提到的把事件推送到所有的观察者，<em>创造者</em>即是<em>Signal Producer</em>，简单理解它就是用来创造、改变事件流的，后续会有描述。所有的观察者只能观察，并不能对数据流产生副作用，且一个事件流所有的观察者所接收到的事件都是一样的。<br><em>Signal</em>提供了两种创建方式<code>Sigal.pip()</code>和<em>Signal.init()</em>,<br><figure class="highlight plain"><figcaption><span>test1</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">func text1() &#123;</span><br><span class="line">        </span><br><span class="line">   let (signal, observe) = Signal&lt;String, NoError&gt;.pipe()</span><br><span class="line">   </span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
-<p><span id="Observers">RAC对观察者<em>Observers</em>的定义是：事件流推送事件的任意对象，这些对象正在等待接受、或者可以等待接受事件流所推送的事件，可以通过<code>Signal.observe</code>或者<code>SignalProducer.start</code>隐式创建一个观察者。</span></p>
+        <p>读<a href="http://www.w3school.com.cn/php/php_file_open.asp" target="_blank" rel="noopener">w3c文件部分</a>和一些博客之后，记录个人认为的可能比较常用的函数。</p>
+<h2 id="打开文件-创建"><a href="#打开文件-创建" class="headerlink" title="打开文件(创建)"></a>打开文件(创建)</h2><p>通过<code>fopen($filename, $mode, $use_include_path = null, $context = null)</code>打开文件，成功则返回文件句柄<em>handle</em>，$mode的值有如下4组：</p>
+<ol>
+<li>r/r+，分别对应只读/读写，文件指针在开头，如果文件存在，不会清空该文件(r+)，如文件不存在，不会创建该文件</li>
+<li>w/w+，分别对应只写/读写，如果文件存在，则清空文件，如果文件不存在，则创建该文件，文件指针在开头</li>
+<li>a/a+，分别对应只写/读写，如果文件存在，保留文件内容，文件指针在结尾，如果文件不存在，新建该文件</li>
+<li>x/x+，分别对应创建只读文件/读写文件，如果文件已存在，则失败。</li>
+</ol>
+<p>以上提到的如果文件不存在自动穿件的情况有一个前提：目标文件的所在父级目录要存在。</p>
+<h2 id="文件读取"><a href="#文件读取" class="headerlink" title="文件读取"></a>文件读取</h2><ol>
+<li><p><code>fread ($handle, $length)</code>读取至指定<em>字节长度</em>的内容</p>
+<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">$full_file_name = dirname(<span class="keyword">__FILE__</span>) . <span class="string">'/1.txt'</span>;</span><br><span class="line">$handle = fopen($full_file_name, <span class="string">'r'</span>);</span><br><span class="line"><span class="keyword">echo</span> fread($handle, filesize($full_file_name));</span><br></pre></td></tr></table></figure>
+</li>
+<li><p><code>file_get_contents ($filename, $use_include_path = false, $context = null, $offset = 0, $maxlen = null) {}</code>从指定字节开始(默认0)读取指定字节长度的内容(默认全部)到一个字符串中。文件中的换行标识为<em>\n</em>(mac/linux是<em>\n</em>，window是<em>\r\n</em>)，而html的换是<em>&lt;br&gt;</em>，所以读取的内容换行没了。解决方案是使用<em>&lt;pre&gt;</em>原格式输出，或者把<em>\n</em>换成<em>&lt;br&gt;</em>(注意替换的时候，<em>“\n”</em>双引号，单引号不起作用)。如果两个字符之间有多个空格，则读取的内容中只有一个空格，替换字符串的<em>“ ”</em>(中间有一个空格)替换为<em>&amp;nbsp;</em>(<span style="color:red">使用频率最高，适用于小文件读取，大文件的话，参考下面优化的</span>)</p>
+</li>
+<li><code>fgets($handle)</code>按行读取内容，每读取一行，文件指针下移一行，直到<code>feof($handle) = true</code>，空格不显示问题，参考2</li>
+<li><code>fgetc($handle)</code>按字节读取，每读取一个字节，文件指针下移一个字节，直到<code>feof($handle) = true</code></li>
+<li><code>parse_ini_file($filename)</code>项目中存在各种各样的配置文件(xxxconfig.ini)，其文件内容格式如下<figure class="highlight php"><figcaption><span>dbconfig.ini</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">server=<span class="number">11.111</span><span class="number">.11</span><span class="number">.11</span></span><br><span class="line">username=zwk</span><br><span class="line">psw=admin</span><br><span class="line">port=<span class="number">3306</span></span><br></pre></td></tr></table></figure>
+该函数将如上内容的每一项包装成<em>key=&gt;value</em>，然后以数组形式返回。</li>
+</ol>
+<p>一点可以优化的地方，未必每次都是需要一次性将整个文件读到内存进行操作，利用其中的读取范围的参数，一部分一部分读取处理。<br><figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">$buffer = <span class="string">''</span>;</span><br><span class="line">$size = <span class="number">1024</span>;</span><br><span class="line"><span class="keyword">while</span> (!feof($handle)) &#123;</span><br><span class="line">    $buffer .= fread($handle, $size);</span><br><span class="line">    <span class="comment">// 可以对buffer进行其他处理</span></span><br><span class="line">&#125;</span><br><span class="line"><span class="keyword">echo</span> $buffer;</span><br></pre></td></tr></table></figure><br>拿到文件的读取结果之后，立刻关闭文件句柄<code>fclose($handle)</code></p>
+<h2 id="文件写入"><a href="#文件写入" class="headerlink" title="文件写入"></a>文件写入</h2><ol>
+<li><code>fwrite($handle,$string,$length = null)</code>将字符串的指定字节长度(默认是全部)写入文件，要注意<em>fopen</em>创建的文件句柄是否有写的权限，该权限会不会导致已有内容被清空，文件的读写指针在默认在什么地方(比如r+会在开头写，替换原有字节长度(<span>不是字符串度<span>)的内容，比如一个汉字字符，替换掉原有的3个字符，或者3个字符替换原有的一个字符；而a+则是在最后追加，不产生覆盖行为)。注意在写入前面提到的换行符(其他特殊字符同样)的时候，不要使用<span style="color:red">‘\n’</span>，单引号不发生转义，将原字符写入了文件，使用<span style="color:red">“\n”</span></span></span></li>
+<li><code>file_put_contents ($filename, $data, $flags = 0, $context = null)</code>，使用频率最高，可以写字符串、数组、流三种数据，如果文件存在，默认先清空该文件，设置<code>$flag=FILE_APPEND</code>则是在最后追加，如果文件不存在，先创建该文件，前提是目标文件的所在父级目录要存在。</li>
+</ol>
+<h2 id="文件信息"><a href="#文件信息" class="headerlink" title="文件信息"></a>文件信息</h2><ol>
+<li><code>fstat ($handle)</code>获取文件的全部信息<figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="type">Array</span></span><br><span class="line">(</span><br><span class="line">    [<span class="number">0</span>] =&gt; <span class="number">16777220</span></span><br><span class="line">    [<span class="number">1</span>] =&gt; <span class="number">8601984257</span></span><br><span class="line">    [<span class="number">2</span>] =&gt; <span class="number">33188</span></span><br><span class="line">    [<span class="number">3</span>] =&gt; <span class="number">1</span></span><br><span class="line">    [<span class="number">4</span>] =&gt; <span class="number">501</span></span><br><span class="line">    [<span class="number">5</span>] =&gt; <span class="number">20</span></span><br><span class="line">    [<span class="number">6</span>] =&gt; <span class="number">0</span></span><br><span class="line">    [<span class="number">7</span>] =&gt; <span class="number">3</span></span><br><span class="line">    [<span class="number">8</span>] =&gt; <span class="number">1533189738</span></span><br><span class="line">    [<span class="number">9</span>] =&gt; <span class="number">1533189529</span></span><br><span class="line">    [<span class="number">10</span>] =&gt; <span class="number">1533189529</span></span><br><span class="line">    [<span class="number">11</span>] =&gt; <span class="number">4194304</span></span><br><span class="line">    [<span class="number">12</span>] =&gt; <span class="number">8</span></span><br><span class="line">    [dev] =&gt; <span class="number">16777220</span></span><br><span class="line">    [ino] =&gt; <span class="number">8601984257</span></span><br><span class="line">    [mode] =&gt; <span class="number">33188</span></span><br><span class="line">    [nlink] =&gt; <span class="number">1</span></span><br><span class="line">    [uid] =&gt; <span class="number">501</span></span><br><span class="line">    [gid] =&gt; <span class="number">20</span></span><br><span class="line">    [rdev] =&gt; <span class="number">0</span></span><br><span class="line">    [size] =&gt; <span class="number">3</span> <span class="comment">// 字节数</span></span><br><span class="line">    [atime] =&gt; <span class="number">1533189738</span> <span class="comment">// 上次访问时间</span></span><br><span class="line">    [mtime] =&gt; <span class="number">1533189529</span> <span class="comment">// 上次修改时间</span></span><br><span class="line">    [ctime] =&gt; <span class="number">1533189529</span> <span class="comment">// 创建时间</span></span><br><span class="line">    [blksize] =&gt; <span class="number">4194304</span></span><br><span class="line">    [blocks] =&gt; <span class="number">8</span></span><br><span class="line">)</span><br></pre></td></tr></table></figure>
+这些信息也有对应的单独函数，比如：<code>filesize($file_name)、fileatime ($filename)、filemtime($filename)</code>…….</li>
+</ol>
+<h2 id="文件删除"><a href="#文件删除" class="headerlink" title="文件删除"></a>文件删除</h2><p><code>unlink($filename)</code>，返回删除结果</p>
+<h2 id="修改文件名"><a href="#修改文件名" class="headerlink" title="修改文件名"></a>修改文件名</h2><p><code>rename($filepath, $newname)</code>修改文件或者文件夹的名称，参数1必须是真是存在的文件路径，参数2是新名称，也可以是改名之后的路径，但是必须要和原来的路径保持一致(父级)，不能改到其他文件路径下。注意一点如果新文件名包含汉字，在window系统下(测试在mac下没这个问题，Linux估计也没问题)，文件系统<em>GBK、GB2312</em>(好像是GB2312)，而代码中的修改为<em>UTF-8</em>，为了防止文件名乱码，要把文件名把<em>UTF-8</em>编码转到这两种编码下<code>iconv(&#39;utf-8&#39;,&#39;gbk&#39;, $new_file_name)</code> &nbsp;&nbsp;&nbsp;&nbsp;<span style="color:red">老谭PHP教学中总结，没有window电脑，此处没有具体尝试</span></p>
 
       
     </div>
@@ -438,7 +465,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ReactiveCocoa/" rel="tag"># ReactiveCocoa</a>
+            <a href="/tags/文件操作/" rel="tag"># 文件操作</a>
           
         </div>
       
@@ -451,8 +478,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/24/ReactiveCocoa-Event/" rel="next" title="ReactiveCocoa_Event">
-                <i class="fa fa-chevron-left"></i> ReactiveCocoa_Event
+              <a href="/2018/07/31/namespace笔记/" rel="next" title="namespace笔记">
+                <i class="fa fa-chevron-left"></i> namespace笔记
               </a>
             
           </div>
@@ -461,8 +488,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/06/28/PHPStorm-08S01/" rel="prev" title="PHPStorm_[08S01]">
-                PHPStorm_[08S01] <i class="fa fa-chevron-right"></i>
+              <a href="/2018/08/03/MAC配置虚拟主机/" rel="prev" title="MAC配置虚拟主机">
+                MAC配置虚拟主机 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -523,8 +550,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -618,6 +654,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#打开文件-创建"><span class="nav-number">1.</span> <span class="nav-text">打开文件(创建)</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件读取"><span class="nav-number">2.</span> <span class="nav-text">文件读取</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件写入"><span class="nav-number">3.</span> <span class="nav-text">文件写入</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件信息"><span class="nav-number">4.</span> <span class="nav-text">文件信息</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#文件删除"><span class="nav-number">5.</span> <span class="nav-text">文件删除</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#修改文件名"><span class="nav-number">6.</span> <span class="nav-text">修改文件名</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
