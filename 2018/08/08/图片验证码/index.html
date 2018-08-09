@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="zhouwk的个人笔记">
 <meta property="og:description" content="记录学习绘图章节写的一个图片二维码demo和其中的几个点">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-09T08:00:04.660Z">
+<meta property="og:updated_time" content="2018-08-09T08:15:50.570Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="图片验证码">
 <meta name="twitter:description" content="记录学习绘图章节写的一个图片二维码demo和其中的几个点">
@@ -425,7 +425,7 @@
 <li><em>range ($start, $end, $step = 1)</em> 创建一个包含该范围的数组</li>
 <li><em>array_merge($arr1, $arr2 ….)</em> 合并N个数组</li>
 <li>使用session存储code进行校验</li>
-<li><em>header(‘Content-Type:image/png’)</em>之前不能有输出语句，否则图片会加载失败;不能复制<em>imagepng($source, $filename)</em>的参数<em>$filename</em> ，否则图片加载失败</li>
+<li><em>header(‘Content-Type:image/png’)</em>之前不能有输出语句，否则图片会加载失败;不能赋值<em>imagepng($source, $filename)</em>的参数<em>$filename</em> ，否则图片加载失败</li>
 <li>在颜色绘制之前使用<em>imagecolortransparent($source, $color)</em>函数设置颜色可以把对应颜色设置为透明</li>
 <li>绘制文本的两种方式<figure class="highlight php"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 方式一 </span></span><br><span class="line">imagestring ($image, $font, $x, $y, $string, $color)</span><br><span class="line"><span class="comment">// 方式二</span></span><br><span class="line">imagettftext ($image, $size, $angle, $x, $y, $color, $fontfile, $text)</span><br></pre></td></tr></table></figure>
 方式一有调节字体大小的参数，但是似乎不起作用，方式二可以调节字体、字体大小、倾斜角度；另外这两个函数中<em>$x</em>的参数解释是一样的，即绘画的起始X轴位置，但是<em>$y</em>的解释是不同的，方式一中的<em>$y</em> 同 <em>$x</em>一样绘画的起始Y轴位置，方式二中的<em>$y</em>指的是首字符的基线<em>baseline</em>(不是文字底部距离画底部的距离)，并不是绘画的起始Y轴位置。</li>
