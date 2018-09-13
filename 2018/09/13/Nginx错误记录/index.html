@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Apache," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -79,20 +79,20 @@
 
 
 
-<meta name="description" content="因为在MAC下配置Apache的时候出现了挺多莫名的问题，所以做一个记录 MAC下配置相关的文件： 安装目录：/etc/apache2 域名：IP的对应文件：/etc/hosts Apache配置文件：/etc/apache2/httpd.conf 虚拟主机节点配置文件：/etc/apache2/extra/httpd-vhosts 默认根目录：/Library/WebServer/Documen">
-<meta name="keywords" content="Apache">
+<meta name="description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释1234567root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document_">
+<meta name="keywords" content="周伟克的个人笔记">
 <meta property="og:type" content="article">
-<meta property="og:title" content="MAC配置虚拟主机">
-<meta property="og:url" content="http://yoursite.com/2018/08/03/MAC配置虚拟主机/index.html">
+<meta property="og:title" content="Nginx错误记录(后续补充ing)">
+<meta property="og:url" content="http://yoursite.com/2018/09/13/Nginx错误记录/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="因为在MAC下配置Apache的时候出现了挺多莫名的问题，所以做一个记录 MAC下配置相关的文件： 安装目录：/etc/apache2 域名：IP的对应文件：/etc/hosts Apache配置文件：/etc/apache2/httpd.conf 虚拟主机节点配置文件：/etc/apache2/extra/httpd-vhosts 默认根目录：/Library/WebServer/Documen">
+<meta property="og:description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释1234567root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document_">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:image" content="http://yoursite.com/2018/08/03/MAC配置虚拟主机/1.png">
-<meta property="og:updated_time" content="2018-08-21T02:06:10.874Z">
+<meta property="og:image" content="http://yoursite.com/2018/09/13/Nginx错误记录/1.png">
+<meta property="og:updated_time" content="2018-09-13T05:54:43.183Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="MAC配置虚拟主机">
-<meta name="twitter:description" content="因为在MAC下配置Apache的时候出现了挺多莫名的问题，所以做一个记录 MAC下配置相关的文件： 安装目录：/etc/apache2 域名：IP的对应文件：/etc/hosts Apache配置文件：/etc/apache2/httpd.conf 虚拟主机节点配置文件：/etc/apache2/extra/httpd-vhosts 默认根目录：/Library/WebServer/Documen">
-<meta name="twitter:image" content="http://yoursite.com/2018/08/03/MAC配置虚拟主机/1.png">
+<meta name="twitter:title" content="Nginx错误记录(后续补充ing)">
+<meta name="twitter:description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释1234567root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document_">
+<meta name="twitter:image" content="http://yoursite.com/2018/09/13/Nginx错误记录/1.png">
 
 
 
@@ -122,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/03/MAC配置虚拟主机/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/09/13/Nginx错误记录/"/>
 
 
 
 
 
-  <title>MAC配置虚拟主机 | zhouwk的个人笔记</title>
+  <title>Nginx错误记录(后续补充ing) | zhouwk的个人笔记</title>
   
 
 
@@ -309,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/03/MAC配置虚拟主机/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/Nginx错误记录/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouwk">
@@ -326,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">MAC配置虚拟主机</h1>
+          <h1 class="post-title" itemprop="name headline">Nginx错误记录(后续补充ing)</h1>
         
 
         <div class="post-meta">
@@ -338,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-03T14:03:38+08:00">
-                2018-08-03
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T00:53:57+08:00">
+                2018-09-13
               </time>
             
 
@@ -349,28 +349,6 @@
           </span>
 
           
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
 
           
             
@@ -379,8 +357,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/03/MAC配置虚拟主机/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/03/MAC配置虚拟主机/" itemprop="commentsCount"></span>
+                <a href="/2018/09/13/Nginx错误记录/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/09/13/Nginx错误记录/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -388,7 +366,7 @@
 
           
           
-             <span id="/2018/08/03/MAC配置虚拟主机/" class="leancloud_visitors" data-flag-title="MAC配置虚拟主机">
+             <span id="/2018/09/13/Nginx错误记录/" class="leancloud_visitors" data-flag-title="Nginx错误记录(后续补充ing)">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -419,54 +397,13 @@
       
 
       
-        <p>因为在MAC下配置Apache的时候出现了挺多莫名的问题，所以做一个记录</p>
-<h2 id="MAC下配置相关的文件："><a href="#MAC下配置相关的文件：" class="headerlink" title="MAC下配置相关的文件："></a>MAC下配置相关的文件：</h2><ol>
-<li>安装目录：/etc/apache2</li>
-<li>域名：IP的对应文件：/etc/hosts</li>
-<li>Apache配置文件：/etc/apache2/httpd.conf</li>
-<li>虚拟主机节点配置文件：/etc/apache2/extra/httpd-vhosts</li>
-<li>默认根目录：/Library/WebServer/Documents <a id="more"></a></li>
+        <ol>
+<li>html文件正常解析，而PHP文件没有解析直接下载<figure class="highlight plain"><figcaption><span>去除nginx.conf中PHP文件的注释</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root your_root_path</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">  fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">  fastcgi_index  index.php;</span><br><span class="line">  fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">  include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a></li>
+<li>解析PHP文件出现错误<em>the page you are looking for is currently unavailable</em><br><img src="/2018/09/13/Nginx错误记录/1.png">这是<em>php-fpm</em>没有启动导致的，终端直接<em>sudo php-fpm</em></li>
+<li><em>sudo-fpm</em>报错找不到<em>php-fpm.conf</em>文件，详细信息<em>/private/etc/php-fpm.conf: No such file or directory</em>。在<em>/private/etc/</em>下应该有一个<em>php-fpm.conf.default</em>的文件，复制一份儿重命名为<em>php-fpm.conf</em></li>
+<li>在进过操作<em>3</em>之后再次<em>sudo php-fpm</em>，报错<em>error_log (/usr/var/log/php-fpm.log): No such file or directory</em>，是这个错误文件找不到。好吧，既然没有这个<em>/usr/var/log/php-fpm.log</em>文件(其实子目录var都不存在)，那就一层一层创建吧，但是发现<em>/usr/</em>目录下，用户(即使是root)是没有写权限的，网上有人建议重启MAC，然后<em>command + R</em>，终端<em>csrutil disable</em>，这样确实可以创建了，但是不建议这样做，MAC控制这个文件夹的权限肯定基于一定考虑的，且如果由于其他需要我们<em>csrutil enable</em>的时候，依然还是会报这个错误，毕竟又失去了写权限，所以修改配置文件<em>hp-fpm.conf</em>，把<em>php-fpm.log</em>改到其他目录下去，比如<em>/etc/log/</em>下</li>
+<li><em>sudo php-fpm</em>报错<em>No pool defined. at least one pool section must be specified in config file</em>，把<em>/private/etc/php-fpm.d/<a href="http://www.conf.conf" target="_blank" rel="noopener">www.conf.conf</a></em>文件复制一份儿，重命名为<em><a href="http://www.conf" target="_blank" rel="noopener">www.conf</a></em>，并保存在同级目录下</li>
 </ol>
-<h2 id="配置hosts文件"><a href="#配置hosts文件" class="headerlink" title="配置hosts文件"></a>配置hosts文件<span id="config_hosts"></span></h2><p>客户端在浏览器里面输入域名的时候，有先在本机的此文件找对应的ip地址，如果找不到，去DNS找对应的ip地址，找得到的话就访问ip。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">127.0.0.1	localhost</span><br><span class="line">255.255.255.255	broadcasthost</span><br><span class="line">::1             localhost </span><br><span class="line">0.0.0.0 account.jetbrains.com</span><br></pre></td></tr></table></figure><br>把<em>127.0.0.1</em>对应的localhost改成<em><a href="http://www.zwk.com" target="_blank" rel="noopener">www.zwk.com</a></em></p>
-<h2 id="配置httpd-conf"><a href="#配置httpd-conf" class="headerlink" title="配置httpd.conf"></a>配置httpd.conf<span id="config_httpd.conf"></span></h2><ol>
-<li><p><span id="ServerRoot">ServerRoot</span>“/etc”：</p>
-<blockquote><p>ServerRoot: The top of the directory tree under which the server’s<br>configuration, error, and log files are kept.</p>
-</blockquote>
-<p>包含服务器配置文件、错误文件、日志文件的目录，不要在后面追加<span style="color:red">/，比如/etc/</span></p>
-<img src="/2018/08/03/MAC配置虚拟主机/1.png" title="ServerRoot">
-</li>
-<li><p>Listen:绑定IP、端口，</p>
-<blockquote><p>Listen: Allows you to bind Apache to specific IP addresses and/or ports, instead of the default. See also the &lt;VirtualHost> directive</p>
-</blockquote>
-<figure class="highlight plain"><figcaption><span>默认绑定</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfDefine SERVER_APP_HAS_DEFAULT_PORTS&gt;</span><br><span class="line">    Listen 8080</span><br><span class="line">&lt;/IfDefine&gt;</span><br><span class="line">&lt;IfDefine !SERVER_APP_HAS_DEFAULT_PORTS&gt;</span><br><span class="line">    Listen 80</span><br><span class="line">&lt;/IfDefine&gt;</span><br></pre></td></tr></table></figure>
-<p>在不做其他处理的情况下，如果绑定80端口，访问的时候不需要在URL地址下拼接端口号，如果是其他端口则要拼接端口号，可以上网搜一下处理方式。<br><span style="color:red">遇到问题：</span></p>
-<ol>
-<li>如果保留上述配置，或者注释掉上述配置，添加<em>Listen 80</em>(默认是80)，那么<a href="http://localhost" target="_blank" rel="noopener">http://localhost</a> 可以正常 访问，<a href="http://127.0.0.1/index.html" target="_blank" rel="noopener">http://127.0.0.1/index.html</a> 和 <a href="http://www.zwk.com/index.html" target="_blank" rel="noopener">www.zwk.com/index.html</a> 则会触发<em>404 NOT FOUND</em>错误，即使拼接80端口也是如此</li>
-<li>注释掉上述配置，绑定非80断定，比如<em>Listen 81</em>，三种方式都能正常访问，但是访问的URL地址必须要拼接这个端口号</li>
-<li>出现过访问交替成功/失败的情况(后来尝试好像是Safari的问题，Chrome 就是一直失败的，不会交替)</li>
-</ol>
-</li>
-<li><p><span id="LoadModule_error"></span>LoadModule moduleName path: 加载功能模块，这是我一直搭建虚拟主机失败的最主要问题。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">LoadModule authn_file_module libexec/apache2/mod_authn_file.so</span><br><span class="line">#LoadModule authn_dbm_module libexec/apache2/mod_authn_dbm.so</span><br><span class="line">#LoadModule authn_anon_module libexec/apache2/mod_authn_anon.so</span><br><span class="line">              ...........</span><br></pre></td></tr></table></figure>
-<p>默认的是一个这样的模块列表，路径都是在<em>libexec/apache2/</em>下，但是实际的完整路径是<em>/usr/libexec/apache2/moduleName</em>，然后就一直报错说这里面的模块找不到。<br><span style="color:red">遇到问题:</span><br>因为后来该了一些其他配置，导致访问的时候出现404问题，大致描述<em>THE URL … is NOT FOUND ON THIS SERVER</em>，按照网上的建议最终也没有修正，所以我把<em>httpd.conf</em>文件给复原了，这个时候，上面模块的路径恢复默认在<em>libexec/apache2/</em>下，但是这个时候却不报这个<em>在libexec/apache2/module_name上找不到module_name</em>的错误</p>
-</li>
-<li><p>ServerAdmin 出现错误的通知邮箱，难道说国内的邮箱不行吗，使用<a href="#apachectl_configtest">指令apachectl configtest</a>检测到错误，终端描述说查看邮箱，但是邮箱并没有。</p>
-</li>
-<li>配置项目根目录<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br></pre></td><td class="code"><pre><span class="line">DocumentRoot &quot;/Library/WebServer/Documents&quot;</span><br><span class="line"># 该目录的访问权限配置</span><br><span class="line">&lt;Directory &quot;/Library/WebServer/Documents&quot;&gt;</span><br><span class="line">    #</span><br><span class="line">    # Possible values for the Options directive are &quot;None&quot;, &quot;All&quot;,</span><br><span class="line">    # or any combination of:</span><br><span class="line">    #   Indexes Includes FollowSymLinks SymLinksifOwnerMatch ExecCGI MultiViews</span><br><span class="line">    #</span><br><span class="line">    # Note that &quot;MultiViews&quot; must be named *explicitly* --- &quot;Options All&quot;</span><br><span class="line">    # doesn&apos;t give it to you.</span><br><span class="line">    #</span><br><span class="line">    # The Options directive is both complicated and important.  Please see</span><br><span class="line">    # http://httpd.apache.org/docs/2.4/mod/core.html#options</span><br><span class="line">    # for more information.</span><br><span class="line">    #</span><br><span class="line">    Options FollowSymLinks Multiviews</span><br><span class="line">    MultiviewsMatch Any</span><br><span class="line"></span><br><span class="line">    #</span><br><span class="line">    # AllowOverride controls what directives may be placed in .htaccess files.</span><br><span class="line">    # It can be &quot;All&quot;, &quot;None&quot;, or any combination of the keywords:</span><br><span class="line">    #   AllowOverride FileInfo AuthConfig Limit</span><br><span class="line">    #</span><br><span class="line">    AllowOverride None</span><br><span class="line"></span><br><span class="line">    #</span><br><span class="line">    # Controls who can get stuff from this server.</span><br><span class="line">    #</span><br><span class="line">    Require all granted</span><br><span class="line">    # 替换了 Order allow,deny Allow from all，但是老的依然兼容</span><br><span class="line">    # 可以通过此处限定访问来源</span><br><span class="line">    </span><br><span class="line"></span><br><span class="line">    # ----------网上大都如下配置，但是导致了403You don&apos;t have permission to access / on this server.</span><br><span class="line">    #Options All</span><br><span class="line">    #AllowOverride None</span><br><span class="line">    #Order allow,deny</span><br><span class="line">    #Allow from all    </span><br><span class="line">&lt;/Directory&gt;</span><br><span class="line"></span><br></pre></td></tr></table></figure>
-6.配置默认页面<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">&lt;IfModule dir_module&gt;</span><br><span class="line">    DirectoryIndex index.html</span><br><span class="line">&lt;/IfModule&gt;</span><br></pre></td></tr></table></figure>
-</li>
-</ol>
-<p>理论上说，在项目根目录下放一个<em>index.html</em>文件，走完该节的配置，应该能在浏览器访问<a href="http://www.zwk.com:81" target="_blank" rel="noopener">http://www.zwk.com:81</a> 访问到<em>index.html</em></p>
-<h2 id="局域网内访问"><a href="#局域网内访问" class="headerlink" title="局域网内访问"></a>局域网内访问</h2><p>经过<a href="#config_httpd.conf">上节httpd.conf的配置</a>已经可以本地访问该服务器，通过<a href="#config_hosts">hosts文件配置</a>本机访问的方式有两种<a href="http://www.zwk.com:81" target="_blank" rel="noopener">http://www.zwk.com:81</a> 和 <a href="http://localhost:81" target="_blank" rel="noopener">http://localhost:81</a> 。<br>现在我们要在同局域网内的其他设备访问到该服务器，首先获取局域网的ip(不是直接百度<em>本机ip</em>的外网ip)，终端输入<em>ifconfig</em>，在终端的输出结果找<em>inet</em>(非inet6)对应的ip地址，在我的wifi环境下找到了三个ip，其中一个是localhost的127.0.0.1。把上面的<em><a href="http://www.zwk.com" target="_blank" rel="noopener">www.zwk.com</a></em>或者<em>localhost</em>换成另外两个ip的任意一个就是通局域网内的访问路径</p>
-<h2 id="很好用的apachectl-configtest"><a href="#很好用的apachectl-configtest" class="headerlink" title="很好用的apachectl configtest"></a>很好用的apachectl configtest<span id="apachectl_configtest"></span></h2><p>该终端指令可以检测出配置文件的语法错误(比如<em>httpd.conf</em>、<em>httpd-vhosts</em>)。<br><a href="#LoadModule_error">模块路径错误导致的失败</a>所提示的错误如下(注意：后期这个问题又没了)：<br><blockquote><p>httpd: Syntax error on line 67 of /private/etc/apache2/httpd.conf: Cannot load libexec/apache2/mod_authn_file.so into server: dlopen(/etc/libexec/apache2/mod_authn_file.so, 10): image not found</p>
-</blockquote><br>我们在故意制造一个问题，在根目录访问权限配置<a href="#ServerRoot">ServerRoot</a>改成<em>/etc2</em>终端输入该命令，输出错误如下：<br><blockquote><p>httpd: Syntax error on line 31 of /private/etc/apache2/httpd.conf: ServerRoot must be a valid directory</p>
-</blockquote></p>
-<h2 id="配置httpd-vhosts文件"><a href="#配置httpd-vhosts文件" class="headerlink" title="配置httpd-vhosts文件"></a>配置httpd-vhosts文件</h2><p>上面的配置过程都是一台服务器上配置一个站点，通过配置虚拟主机文件<em>httpd-vhosts</em>可以配置多站点，现在我们要通过访问 <a href="http://localhost:81" target="_blank" rel="noopener">http://localhost:81</a> 和 <a href="http://localhost:82" target="_blank" rel="noopener">http://localhost:82</a> 进入到两个站点。<br>首先我们在默认的根目录下<em>/Library/WebServer/Documents</em> 新建两个文件夹<em>zwk</em>和<em>zwk2</em>作为两个站点目录。</p>
-<figure class="highlight plain"><figcaption><span>1. 在http.conf中监听81、82端口</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">Listen 81</span><br><span class="line">Listen 82</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>2.打开httpd.conf中关于httpd-vhost的注释</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">#Virtual hosts</span><br><span class="line">#Include /private/etc/apache2/extra/httpd-vhosts.conf</span><br></pre></td></tr></table></figure>
-<figure class="highlight plain"><figcaption><span>3.在httpd-vhost中如下配置</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line">&lt;VirtualHost *:81&gt;</span><br><span class="line">    DocumentRoot &quot;/Library/WebServer/Documents/zwk1&quot;</span><br><span class="line">    #ServerName servernameA</span><br><span class="line">    #ErrorLog &quot;/private/var/log/apache2/dummy-host2.example.com-error_log&quot;</span><br><span class="line">    #CustomLog &quot;/private/var/log/apache2/dummy-host2.example.com-access_log&quot; common    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;Directory &quot;/Library/WebServer/Documents/zwk&quot;&gt;</span><br><span class="line">    Options FollowSymLinks Multiviews</span><br><span class="line">    MultiviewsMatch Any</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Require all granted</span><br><span class="line">   &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">&lt;VirtualHost *:82&gt;</span><br><span class="line">    DocumentRoot &quot;/Library/WebServer/Documents/zwk2&quot;</span><br><span class="line">    #ServerName servernameB</span><br><span class="line">    #ErrorLog &quot;/private/var/log/apache2/dummy-host2.example.com-error_log&quot;</span><br><span class="line">    #CustomLog &quot;/private/var/log/apache2/dummy-host2.example.com-access_log&quot; common    </span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    &lt;Directory &quot;/Library/WebServer/Documents/qubic&quot;&gt;</span><br><span class="line">    Options FollowSymLinks Multiviews</span><br><span class="line">    MultiviewsMatch Any</span><br><span class="line">    AllowOverride None</span><br><span class="line">    Require all granted</span><br><span class="line">   &lt;/Directory&gt;</span><br><span class="line">&lt;/VirtualHost&gt;</span><br></pre></td></tr></table></figure>
-<p>这样就完成多站点的配置，实际就是把<a href="#config_httpd.conf">httpd-vhost</a>单站点的配置信息放到<em>VirtualHost</em>节点中进行多站点配置，除了<em>Listen port</em>的部分不能放到节点中(apachectl configtest提示错误)。</p>
-<h2 id="一个PHP文件解析的问题"><a href="#一个PHP文件解析的问题" class="headerlink" title="一个PHP文件解析的问题"></a>一个PHP文件解析的问题</h2><p>配置站点结束，尝试访问站点的内容，发现.html文件可以正常渲染，但是.php文件没有解析源代码直接展示在浏览器上，而且<em>httpd.conf</em>中关于PHP模块的注释已经去掉(这也是网上搜索这个问题得到的最多的解决方案)，最终在<a href="https://blog.csdn.net/beyondlpf/article/details/8075781找到了解决方案，如下：" target="_blank" rel="noopener">https://blog.csdn.net/beyondlpf/article/details/8075781找到了解决方案，如下：</a><br><figure class="highlight plain"><figcaption><span>在IfModule mime_module节点下添加如下内容</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">AddType application/x-httpd-php .php</span><br><span class="line">AddType application/x-httpd-php-source .phps </span><br></pre></td></tr></table></figure><br>重启Apache  ，ok 顺利解析</p>
 
       
     </div>
@@ -482,12 +419,6 @@
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/Apache/" rel="tag"># Apache</a>
-          
-        </div>
-      
 
       
       
@@ -497,8 +428,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/02/PHP文件操作笔记/" rel="next" title="PHP文件操作笔记">
-                <i class="fa fa-chevron-left"></i> PHP文件操作笔记
+              <a href="/2018/08/10/PHP-session/" rel="next" title="PHP_session">
+                <i class="fa fa-chevron-left"></i> PHP_session
               </a>
             
           </div>
@@ -506,10 +437,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/08/08/图片验证码/" rel="prev" title="图片验证码">
-                图片验证码 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -569,17 +496,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -673,22 +591,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#MAC下配置相关的文件："><span class="nav-number">1.</span> <span class="nav-text">MAC下配置相关的文件：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置hosts文件"><span class="nav-number">2.</span> <span class="nav-text">配置hosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置httpd-conf"><span class="nav-number">3.</span> <span class="nav-text">配置httpd.conf</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#局域网内访问"><span class="nav-number">4.</span> <span class="nav-text">局域网内访问</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#很好用的apachectl-configtest"><span class="nav-number">5.</span> <span class="nav-text">很好用的apachectl configtest</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置httpd-vhosts文件"><span class="nav-number">6.</span> <span class="nav-text">配置httpd-vhosts文件</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#一个PHP文件解析的问题"><span class="nav-number">7.</span> <span class="nav-text">一个PHP文件解析的问题</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
