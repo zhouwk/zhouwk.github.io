@@ -79,19 +79,19 @@
 
 
 
-<meta name="description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释1234567root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document_">
+<meta name="description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释12345678root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document">
 <meta name="keywords" content="周伟克的个人笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="Nginx错误记录(后续补充ing)">
 <meta property="og:url" content="http://yoursite.com/2018/09/13/Nginx错误记录/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释1234567root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document_">
+<meta property="og:description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释12345678root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2018/09/13/Nginx错误记录/1.png">
-<meta property="og:updated_time" content="2018-09-13T05:54:43.183Z">
+<meta property="og:updated_time" content="2018-09-13T06:17:22.806Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Nginx错误记录(后续补充ing)">
-<meta name="twitter:description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释1234567root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document_">
+<meta name="twitter:description" content="html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释12345678root your_root_pathlocation ~ \.php$ &amp;#123;  fastcgi_pass   127.0.0.1:9000;  fastcgi_index  index.php;  fastcgi_param  SCRIPT_FILENAME  $document">
 <meta name="twitter:image" content="http://yoursite.com/2018/09/13/Nginx错误记录/1.png">
 
 
@@ -398,7 +398,7 @@
 
       
         <ol>
-<li>html文件正常解析，而PHP文件没有解析直接下载<figure class="highlight plain"><figcaption><span>去除nginx.conf中PHP文件的注释</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">root your_root_path</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">  fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">  fastcgi_index  index.php;</span><br><span class="line">  fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">  include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a></li>
+<li>html文件正常解析，而PHP文件没有解析直接下载<figure class="highlight plain"><figcaption><span>去除nginx.conf中PHP文件的注释</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root your_root_path</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">  fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">  fastcgi_index  index.php;</span><br><span class="line">  fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">  # 默认是fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name 会导致file not found 的404问题</span><br><span class="line">  include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><a id="more"></a></li>
 <li>解析PHP文件出现错误<em>the page you are looking for is currently unavailable</em><br><img src="/2018/09/13/Nginx错误记录/1.png">这是<em>php-fpm</em>没有启动导致的，终端直接<em>sudo php-fpm</em></li>
 <li><em>sudo-fpm</em>报错找不到<em>php-fpm.conf</em>文件，详细信息<em>/private/etc/php-fpm.conf: No such file or directory</em>。在<em>/private/etc/</em>下应该有一个<em>php-fpm.conf.default</em>的文件，复制一份儿重命名为<em>php-fpm.conf</em></li>
 <li>在进过操作<em>3</em>之后再次<em>sudo php-fpm</em>，报错<em>error_log (/usr/var/log/php-fpm.log): No such file or directory</em>，是这个错误文件找不到。好吧，既然没有这个<em>/usr/var/log/php-fpm.log</em>文件(其实子目录var都不存在)，那就一层一层创建吧，但是发现<em>/usr/</em>目录下，用户(即使是root)是没有写权限的，网上有人建议重启MAC，然后<em>command + R</em>，终端<em>csrutil disable</em>，这样确实可以创建了，但是不建议这样做，MAC控制这个文件夹的权限肯定基于一定考虑的，且如果由于其他需要我们<em>csrutil enable</em>的时候，依然还是会报这个错误，毕竟又失去了写权限，所以修改配置文件<em>hp-fpm.conf</em>，把<em>php-fpm.log</em>改到其他目录下去，比如<em>/etc/log/</em>下</li>
