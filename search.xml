@@ -1,6 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于self和super的一道小题]]></title>
+    <url>%2F2018%2F10%2F08%2F%E5%85%B3%E4%BA%8Eself%E5%92%8Csuper%E7%9A%84%E4%B8%80%E9%81%93%E5%B0%8F%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[现有基类Parent如下：12345678910#import &quot;Parent.h&quot;@implementation Parent- (void)test&#123; NSLog(@&quot;%@&quot;,[self class]); NSLog(@&quot;%@&quot;,[self superclass]); NSLog(@&quot;%@&quot;,[super class]);&#125;@end子类Son如下：1234567891011121314#import &quot;Son.h&quot;@implementation Son- (void)test&#123; // 第一组输出 NSLog(@&quot;%@&quot;,[self class]); NSLog(@&quot;%@&quot;,[self superclass]); NSLog(@&quot;%@&quot;,[super class]); // 第二组输出 [super test];&#125;@end访问aSon.test()，两组输出的内容是一样的Son、Parent、Son，[self supperClass]就是访问的父类名，而[self class]和[super class]他们的调用者都是aSon，super只是一个编译修饰符，不是指针，指向父类标志(使用父类的代码)，本质还是当前aSon调用Parent的方法，并不是用aParent对象调用Parent的方法，毕竟还没有直接[new Person]。]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
     <title><![CDATA[Nginx错误记录(后续补充ing)]]></title>
     <url>%2F2018%2F09%2F13%2FNginx%E9%94%99%E8%AF%AF%E8%AE%B0%E5%BD%95%2F</url>
     <content type="text"><![CDATA[html文件正常解析，而PHP文件没有解析直接下载去除nginx.conf中PHP文件的注释12345678root your_root_pathlocation ~ \.php$ &#123; fastcgi_pass 127.0.0.1:9000; fastcgi_index index.php; fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name; # 默认是fastcgi_param SCRIPT_FILENAME /scripts$fastcgi_script_name 会导致file not found 的404问题 include fastcgi_params;&#125; 解析PHP文件出现错误the page you are looking for is currently unavailable这是php-fpm没有启动导致的，终端直接sudo php-fpm sudo-fpm报错找不到php-fpm.conf文件，详细信息/private/etc/php-fpm.conf: No such file or directory。在/private/etc/下应该有一个php-fpm.conf.default的文件，复制一份儿重命名为php-fpm.conf 在进过操作3之后再次sudo php-fpm，报错error_log (/usr/var/log/php-fpm.log): No such file or directory，是这个错误文件找不到。好吧，既然没有这个/usr/var/log/php-fpm.log文件(其实子目录var都不存在)，那就一层一层创建吧，但是发现/usr/目录下，用户(即使是root)是没有写权限的，网上有人建议重启MAC，然后command + R，终端csrutil disable，这样确实可以创建了，但是不建议这样做，MAC控制这个文件夹的权限肯定基于一定考虑的，且如果由于其他需要我们csrutil enable的时候，依然还是会报这个错误，毕竟又失去了写权限，所以修改配置文件hp-fpm.conf，把php-fpm.log改到其他目录下去，比如/etc/log/下 sudo php-fpm报错No pool defined. at least one pool section must be specified in config file，把/private/etc/php-fpm.d/www.conf.conf文件复制一份儿，重命名为www.conf，并保存在同级目录下 Nginx默认的项目根目录是html(完成路径是/usr/local/Cellar/nginx/1.15.3/html，其实是/usr/local/var/www的映像文件夹)，这时候html、php文件都可以正常解析访问，当我尝试修改项目更目录在桌面时，html文件正常访问，php文件出现错误file not found，后来尝试给项目根目录和其下的所有PHP文件设置777权限，还是不行。ls -l这样遍历了默认根目录所有的文件夹才发现每一级对other用户(owner group other)都有r-x权限，这样我就大概明白了，修改的新根目录每一级也必须如此，应该是other用户不拥有/User/zhouweike/Desktopr权限。后来尝试把项目根目录设置在/usr/local/PhpProjects/my_project_name下，查看新建的文件夹和文件权限，默认other用户都是有r权限的。注！这次只是通过解决问题的步骤来分析问题的原因，尚未深究、并不准确]]></content>
