@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="ReactiveCocoa," />
+  <meta name="keywords" content="状态栏," />
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="需要重新整理 Event是RAC中事件流所传输的对象，有如下几种：value Event： 值事件，我们可以通过值事件来告诉观察者产生的数据，比如从服务器请求的数据、进度、模型数组等等。我们再创建事件流的时候会限定其类型，所以这些值事件的value必须同类型。failure Event：失败事件，我们可以通过失败事件来告诉观察者发生了什么错误，通过.error参数来具体描述这个错误，用代码来简单实">
-<meta name="keywords" content="ReactiveCocoa">
+<meta name="description" content="一般情况下，如果APP涉及到视频播放功能，就不可避免的会有播放页面的横竖屏切换功能，一般的处理方式都是在general面板中，选择需要支持的屏幕方向，然后TabController-&amp;gt;NavController-&amp;gt;NotPlayerController设置竖屏，在modal的PlayerController设置支持横屏。在AppDelete文件重新设置window，并且使用纯代码方式创">
+<meta name="keywords" content="状态栏">
 <meta property="og:type" content="article">
-<meta property="og:title" content="ReactiveCocoa_Event">
-<meta property="og:url" content="http://yoursite.com/2018/06/24/ReactiveCocoa-Event/index.html">
+<meta property="og:title" content="状态栏的系统bug">
+<meta property="og:url" content="http://yoursite.com/2018/10/10/状态栏的系统bug/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="需要重新整理 Event是RAC中事件流所传输的对象，有如下几种：value Event： 值事件，我们可以通过值事件来告诉观察者产生的数据，比如从服务器请求的数据、进度、模型数组等等。我们再创建事件流的时候会限定其类型，所以这些值事件的value必须同类型。failure Event：失败事件，我们可以通过失败事件来告诉观察者发生了什么错误，通过.error参数来具体描述这个错误，用代码来简单实">
+<meta property="og:description" content="一般情况下，如果APP涉及到视频播放功能，就不可避免的会有播放页面的横竖屏切换功能，一般的处理方式都是在general面板中，选择需要支持的屏幕方向，然后TabController-&amp;gt;NavController-&amp;gt;NotPlayerController设置竖屏，在modal的PlayerController设置支持横屏。在AppDelete文件重新设置window，并且使用纯代码方式创">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-06-28T05:53:58.713Z">
+<meta property="og:updated_time" content="2018-10-10T06:27:26.768Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="ReactiveCocoa_Event">
-<meta name="twitter:description" content="需要重新整理 Event是RAC中事件流所传输的对象，有如下几种：value Event： 值事件，我们可以通过值事件来告诉观察者产生的数据，比如从服务器请求的数据、进度、模型数组等等。我们再创建事件流的时候会限定其类型，所以这些值事件的value必须同类型。failure Event：失败事件，我们可以通过失败事件来告诉观察者发生了什么错误，通过.error参数来具体描述这个错误，用代码来简单实">
+<meta name="twitter:title" content="状态栏的系统bug">
+<meta name="twitter:description" content="一般情况下，如果APP涉及到视频播放功能，就不可避免的会有播放页面的横竖屏切换功能，一般的处理方式都是在general面板中，选择需要支持的屏幕方向，然后TabController-&amp;gt;NavController-&amp;gt;NotPlayerController设置竖屏，在modal的PlayerController设置支持横屏。在AppDelete文件重新设置window，并且使用纯代码方式创">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/06/24/ReactiveCocoa-Event/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/10/状态栏的系统bug/"/>
 
 
 
 
 
-  <title>ReactiveCocoa_Event | zhouwk的个人笔记</title>
+  <title>状态栏的系统bug | zhouwk的个人笔记</title>
   
 
 
@@ -307,7 +307,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/06/24/ReactiveCocoa-Event/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/状态栏的系统bug/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouwk">
@@ -324,7 +324,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">ReactiveCocoa_Event</h1>
+          <h1 class="post-title" itemprop="name headline">状态栏的系统bug</h1>
         
 
         <div class="post-meta">
@@ -336,8 +336,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-06-24T11:05:49+08:00">
-                2018-06-24
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T13:43:15+08:00">
+                2018-10-10
               </time>
             
 
@@ -377,8 +377,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/06/24/ReactiveCocoa-Event/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/06/24/ReactiveCocoa-Event/" itemprop="commentsCount"></span>
+                <a href="/2018/10/10/状态栏的系统bug/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/10/10/状态栏的系统bug/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -386,7 +386,7 @@
 
           
           
-             <span id="/2018/06/24/ReactiveCocoa-Event/" class="leancloud_visitors" data-flag-title="ReactiveCocoa_Event">
+             <span id="/2018/10/10/状态栏的系统bug/" class="leancloud_visitors" data-flag-title="状态栏的系统bug">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -417,9 +417,8 @@
       
 
       
-        <p><span style="color:red">需要重新整理</span></p>
-<p><em>Event</em>是RAC中事件流所传输的对象，有如下几种：<br><em>value Event</em>： 值事件，我们可以通过值事件来告诉观察者产生的数据，比如从服务器请求的数据、进度、模型数组等等。我们再创建事件流的时候会限定其类型，所以这些值事件的<code>value</code>必须同类型。<br><em>failure Event</em>：失败事件，我们可以通过失败事件来告诉观察者发生了什么错误，通过<code>.error</code>参数来具体描述这个错误，用代码来简单实现一个socket异常断开的失败事件:<br><a id="more"></a><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">let (signal, observe) = Signal&lt;String, NSError&gt;.pipe()</span><br><span class="line">let error = NSError(domain: &quot;domain&quot;, code: -1, userInfo: [&quot;log&quot;: &quot;socket disconnected from host&quot;])</span><br><span class="line">observe.send(error: error)</span><br></pre></td></tr></table></figure><br>RAC对失败事件的处理和普通的异常一样，一旦发生，后续的任何事件就都不会被发送到事件流中，所以谨慎使用。如果希望即使发生错误后续的事件还能正常发送，那么建议使用合适的值事件来间接描述这个错误。<br>如果不允许发生失败事件，那么我们再在创建事件流的时候使用<code>NoError</code>类型，这样就保证了事件流中不会存在失败事件。<br><em>completed Event</em>：成功事件，我们可以发送一个成功事件来告诉观察者操作已经成功完成比如下载完成，或者这个数据流被正常终止。成功事件发生之后，后续的事件将不会被发送到事件流中推送给观察者，所以确保与此有关的所有操作都成功之后在发送成功事件。<br><em>interrupted Event</em>：中断事件，用于取消已经开始的操作，既非成功、也非失败。</p>
-<p>事件流有若干个值事件和最多一个终止事件组组成。</p>
+        <p>一般情况下，如果APP涉及到视频播放功能，就不可避免的会有播放页面的横竖屏切换功能，一般的处理方式都是在<em>general</em>面板中，选择需要支持的屏幕方向，然后<em>TabController-&gt;NavController-&gt;NotPlayerController</em>设置竖屏，在modal的<em>PlayerController</em>设置支持横屏。<br>在<em>AppDelete</em>文件重新设置<em>window</em>，并且使用纯代码方式创建TabController及其RootController，结果发现在只支持竖屏的页面，状态栏还是自动三个方向旋转，即页面不旋转、导航栏旋转的诡异现象，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation &#123;</span><br><span class="line">    return .portrait</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">override var supportedInterfaceOrientations: UIInterfaceOrientationMask &#123;</span><br><span class="line">   return .portrait</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">override var shouldAutorotate: Bool &#123;</span><br><span class="line">   return false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>尝试发现，如果在<em>APPDelegate</em>中重新设置了<em>window</em>，要把<em>general</em>面板的中<em>Main Interface</em>置空，bug解决。<br><a id="more"></a></p>
+<p><hr><br>设置APP支持的屏幕方向除了在<em>general</em>面板中勾选外，还有一种不常使用的方式，在<em>APPDelegate</em>中进行设置(覆盖<em>general</em>面板的设置)。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&gt; UIInterfaceOrientationMask &#123;   </span><br><span class="line">   return .portrait</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure></p>
 
       
     </div>
@@ -437,7 +436,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/ReactiveCocoa/" rel="tag"># ReactiveCocoa</a>
+            <a href="/tags/状态栏/" rel="tag"># 状态栏</a>
           
         </div>
       
@@ -450,8 +449,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/06/15/UITextField/" rel="next" title="UITextField">
-                <i class="fa fa-chevron-left"></i> UITextField
+              <a href="/2018/10/08/关于self和super的一道小题/" rel="next" title="关于self和super的一道小题">
+                <i class="fa fa-chevron-left"></i> 关于self和super的一道小题
               </a>
             
           </div>
@@ -459,10 +458,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2018/06/25/ReactiveCocoa-Signal/" rel="prev" title="ReactiveCocoa_Signal">
-                ReactiveCocoa_Signal <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
