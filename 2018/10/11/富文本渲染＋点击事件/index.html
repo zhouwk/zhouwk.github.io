@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="富文本," />
 
 
 
@@ -79,18 +79,20 @@
 
 
 
-<meta name="description" content="Session的学习笔记  cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不">
-<meta name="keywords" content="周伟克的个人笔记">
+<meta name="description" content="本编是研究新浪微博首页效果的笔记总结，总的来说需要处理的有两个部分：  特殊字符的渲染，比如用户名、话题、小图标、url等 特殊字符的点击事件，需要定位触发点在那段特殊字符中，并以此做不同的处理，如果点击的是非特殊字符，则响应cell的点击事件  接口文件在这里，demo的效果如下：假设一段文字所包含的内容分为普通子串＋4类特殊子串：用户名、图片、url、话题123456enum SpecilTy">
+<meta name="keywords" content="富文本">
 <meta property="og:type" content="article">
-<meta property="og:title" content="PHP_session">
-<meta property="og:url" content="http://yoursite.com/2018/08/10/PHP-session/index.html">
+<meta property="og:title" content="富文本渲染＋点击事件">
+<meta property="og:url" content="http://yoursite.com/2018/10/11/富文本渲染＋点击事件/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="Session的学习笔记  cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不">
+<meta property="og:description" content="本编是研究新浪微博首页效果的笔记总结，总的来说需要处理的有两个部分：  特殊字符的渲染，比如用户名、话题、小图标、url等 特殊字符的点击事件，需要定位触发点在那段特殊字符中，并以此做不同的处理，如果点击的是非特殊字符，则响应cell的点击事件  接口文件在这里，demo的效果如下：假设一段文字所包含的内容分为普通子串＋4类特殊子串：用户名、图片、url、话题123456enum SpecilTy">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T09:47:26.612Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/11/富文本渲染＋点击事件/preview.gif">
+<meta property="og:updated_time" content="2018-10-23T06:04:44.778Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="PHP_session">
-<meta name="twitter:description" content="Session的学习笔记  cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不">
+<meta name="twitter:title" content="富文本渲染＋点击事件">
+<meta name="twitter:description" content="本编是研究新浪微博首页效果的笔记总结，总的来说需要处理的有两个部分：  特殊字符的渲染，比如用户名、话题、小图标、url等 特殊字符的点击事件，需要定位触发点在那段特殊字符中，并以此做不同的处理，如果点击的是非特殊字符，则响应cell的点击事件  接口文件在这里，demo的效果如下：假设一段文字所包含的内容分为普通子串＋4类特殊子串：用户名、图片、url、话题123456enum SpecilTy">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/11/富文本渲染＋点击事件/preview.gif">
 
 
 
@@ -120,13 +122,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2018/08/10/PHP-session/"/>
+  <link rel="canonical" href="http://yoursite.com/2018/10/11/富文本渲染＋点击事件/"/>
 
 
 
 
 
-  <title>PHP_session | zhouwk的个人笔记</title>
+  <title>富文本渲染＋点击事件 | zhouwk的个人笔记</title>
   
 
 
@@ -307,7 +309,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/PHP-session/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/11/富文本渲染＋点击事件/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="zhouwk">
@@ -324,7 +326,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">PHP_session</h1>
+          <h1 class="post-title" itemprop="name headline">富文本渲染＋点击事件</h1>
         
 
         <div class="post-meta">
@@ -336,8 +338,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T16:56:40+08:00">
-                2018-08-10
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-11T11:46:27+08:00">
+                2018-10-11
               </time>
             
 
@@ -347,6 +349,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -355,8 +379,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2018/08/10/PHP-session/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/08/10/PHP-session/" itemprop="commentsCount"></span>
+                <a href="/2018/10/11/富文本渲染＋点击事件/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count gitment-comments-count" data-xid="/2018/10/11/富文本渲染＋点击事件/" itemprop="commentsCount"></span>
                 </a>
               </span>
             
@@ -364,7 +388,7 @@
 
           
           
-             <span id="/2018/08/10/PHP-session/" class="leancloud_visitors" data-flag-title="PHP_session">
+             <span id="/2018/10/11/富文本渲染＋点击事件/" class="leancloud_visitors" data-flag-title="富文本渲染＋点击事件">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -395,14 +419,20 @@
       
 
       
-        <p>Session的学习笔记</p>
+        <p>本编是研究新浪微博首页效果的笔记总结，总的来说需要处理的有两个部分：</p>
 <ol>
-<li><p>cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不会重新开始有效期，设置它的有效时间 应该会重新生成一个新的有效时间</p>
-</li>
-<li><p>以最后设置session的时间为开始点， 60m之后删除整个session文件</p>
-</li>
+<li>特殊字符的渲染，比如用户名、话题、小图标、url等</li>
+<li>特殊字符的点击事件，需要定位触发点在那段特殊字符中，并以此做不同的处理，如果点击的是非特殊字符，则响应cell的点击事件</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ini_set(&apos;session.gc_maxlifetime&apos;, 60);  // 60秒失效</span><br><span class="line">ini_set(&apos;session.gc_divisor&apos;, 100);    // 失效后触发gc_probability / gc_divisor 的概率删除session文件</span><br><span class="line">ini_set(&apos;session.gc_probability&apos;, 100);</span><br></pre></td></tr></table></figure>
+<p>接口文件<a href="https://github.com/zhouwk/RichTextDemo/blob/master/status.php" target="_blank" rel="noopener">在这里</a>，demo的效果如下：<br><img src="/2018/10/11/富文本渲染＋点击事件/preview.gif"><br>假设一段文字所包含的内容分为普通子串＋4类特殊子串：用户名、图片、url、话题<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">enum</span> <span class="title">SpecilType</span> </span>&#123;</span><br><span class="line">    <span class="keyword">case</span> username</span><br><span class="line">    <span class="keyword">case</span> pic</span><br><span class="line">    <span class="keyword">case</span> url</span><br><span class="line">    <span class="keyword">case</span> topic</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>从接口解析到这段文字之后，我们需要在模型中进行这段文字处理，包括：按照如上5种类型拆分这段文字、将拆分的子串按类别进行渲染并最终合并成一段新富文本串。<br>拆分文字需要用到正则表达式，为方便使用，先稍微封装下正则的使用，如下<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">extension</span> <span class="title">String</span> </span>&#123;</span><br><span class="line">    </span><br><span class="line">    <span class="function"><span class="keyword">func</span> <span class="title">match</span><span class="params">(pattern: String)</span></span> -&gt; [<span class="type">NSTextCheckingResult</span>] &#123;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">guard</span> <span class="keyword">let</span> regular = <span class="keyword">try</span>? <span class="type">NSRegularExpression</span>(pattern: pattern,</span><br><span class="line">                                                     options: []) <span class="keyword">else</span> &#123;</span><br><span class="line">            <span class="keyword">return</span> []</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">let</span> range = <span class="type">NSMakeRange</span>(<span class="number">0</span>, <span class="built_in">count</span>)</span><br><span class="line">        <span class="keyword">return</span> regular.matches(<span class="keyword">in</span>: <span class="keyword">self</span>, options: [], range: range)</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>接下来将使用四个正则表示是来拆分文字中的用户名、图片、url、话题这四部分<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 匹配用户名</span></span><br><span class="line"><span class="keyword">let</span> namePattern = <span class="string">"@[a-zA-Z0-9\\u4e00-\\u9fa5]+"</span></span><br><span class="line"><span class="comment">// 匹配图片</span></span><br><span class="line"><span class="keyword">let</span> picPattern = <span class="string">"\\[[\\u4e00-\\u9fa5]+\\]"</span></span><br><span class="line"><span class="comment">// 使用简易的url正则匹配url</span></span><br><span class="line"><span class="keyword">let</span> urlPattern = <span class="string">"https://[a-zA-Z0-9/\\.-_]+"</span></span><br><span class="line"><span class="comment">// 匹配话题</span></span><br><span class="line"><span class="keyword">let</span> topicPattern = <span class="string">"#[a-aA-Z0-9\\u4e00-\\u9fa5]+#"</span></span><br></pre></td></tr></table></figure><br>我们将这4类子串封装成<a href="https://github.com/zhouwk/RichTextDemo/blob/master/RichTextDemo/specialText/SpecialText.swift" target="_blank" rel="noopener">SpecialText</a>模型，并且使用数组<em>specialTexts</em>来存储这些子串，但是由于拆分之后<em>specialTexts</em>储存的顺序已经不是原文字的顺序，所以我们需要根据<em>SpecailText.range.location</em>进行一次排序。<br>现在已经有序的拿到了这四种特殊子串，还差普通子串，本该是对上面4中正则的取反匹配就可以了，但是这段正则我一直写不正确，所以换了一种思路。先把原文字和四种特殊子串直接转化成富文本类型，然后使用<em>NSMutableAttributedString.replaceCharacters(in range: NSRange, with attrString: NSAttributedString)</em>并替换掉原文字的富文本相应range就行了，剩下的就是普通文本了。这其中还有一个细节需要留意一下，我们获取的原文字中对应的图片是用几个文字描述的，比如<em>[哈哈哈]</em>，转成图片之后就只有一个字符长度，所以我们需要一个变量统计图片字符串转图片所减少的字符长度characterCount，所以我们在遍历处理<em>specialTexts</em>的时候，需要做<em>specialText.rang.location - characterCount</em>操作，这样获取的range的才是正确的。详细可见代码<a href="https://github.com/zhouwk/RichTextDemo/blob/master/RichTextDemo/New%20Group/model/Status.swift" target="_blank" rel="noopener">Status.swift</a><br>至此已经完成了第一部分内容，特殊字符的渲染，就下来就要完成第二部分特殊文字和普通文字的点击事件。<br>使用UILabel是无法完成这种功能的，UITextView可以，首先要对UITextView进行基本的设置，如下<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 除去上下边距(textContainerInset即使把左右设置为0，还是有左右边距的存在)</span></span><br><span class="line">textContainerInset = .zero</span><br><span class="line"><span class="comment">// 除去左右边距</span></span><br><span class="line">textContainer.lineFragmentPadding = <span class="number">0</span></span><br><span class="line">isEditable = <span class="literal">false</span></span><br><span class="line">isScrollEnabled = <span class="literal">false</span></span><br><span class="line">isSelectable = <span class="literal">false</span></span><br></pre></td></tr></table></figure><br>主要使用的<em>UITextView</em>的接口</p>
+<ol>
+<li><em>selectionRects(for range: UITextRange) -&gt; [UITextSelectionRect]</em>返回的是<em>UITextView</em>的选中区域Rect数组</li>
+<li><em>selectedTextRange: UITextRange?**UITextView</em>的选中区域，这个变量不能不能直接设置</li>
+<li><em>selectedRange: NSRange</em>，设置<em>UITextView</em>的选中区域，将影响到属性2</li>
+</ol>
+<p>思路就是当发成点击事件，我们遍历<em>specailTexts</em>，分别尝试设置选中区域为特殊子串的区域，即<em>selectedRange = specailText.rane</em>，然后<em>selectedTextRange</em>自动改变为特殊子串的区域，再通过<em>selectionRects</em>获取获取到该特殊子串的Rect数组，如果触点在其中该数组的其中一个Rect中，那么响应事件就是点击了该特殊子串，否则即是点击了其他的普通文字，详细代码在<a href="https://github.com/zhouwk/RichTextDemo/blob/master/RichTextDemo/specialText/SpecialTextView.swift" target="_blank" rel="noopener">这里</a>。<br>完整demo<a href="https://github.com/zhouwk/RichTextDemo" target="_blank" rel="noopener">在这里</a></p>
+<p><hr></p>
+<p><center>插一个小bug</center><br>前面设置了<em>UITextView</em>不能滚动，在cell高度自适应的时候，发现最后一行不能显示出来，解决办法是计算的高度+1作为cell的高度。</p>
 
       
     </div>
@@ -418,6 +448,12 @@
 
     <footer class="post-footer">
       
+        <div class="post-tags">
+          
+            <a href="/tags/富文本/" rel="tag"># 富文本</a>
+          
+        </div>
+      
 
       
       
@@ -427,8 +463,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2018/08/08/图片验证码/" rel="next" title="图片验证码">
-                <i class="fa fa-chevron-left"></i> 图片验证码
+              <a href="/2018/10/10/状态栏的系统bug/" rel="next" title="状态栏的系统bug">
+                <i class="fa fa-chevron-left"></i> 状态栏的系统bug
               </a>
             
           </div>
@@ -437,8 +473,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2018/09/13/Nginx错误记录/" rel="prev" title="Nginx错误记录(后续补充ing)">
-                Nginx错误记录(后续补充ing) <i class="fa fa-chevron-right"></i>
+              <a href="/2018/10/18/一些不被注意的简单点（一）/" rel="prev" title="一些不被注意的简单点（一）">
+                一些不被注意的简单点（一） <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>

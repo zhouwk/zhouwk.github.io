@@ -1,6 +1,30 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[去除pop的导航条渐变效果]]></title>
+    <url>%2F2018%2F10%2F18%2F%E5%8E%BB%E9%99%A4pop%E7%9A%84%E5%AF%BC%E8%88%AA%E6%9D%A1%E6%B8%90%E5%8F%98%E6%95%88%E6%9E%9C%2F</url>
+    <content type="text"></content>
+  </entry>
+  <entry>
+    <title><![CDATA[一些不被注意的简单点（一）]]></title>
+    <url>%2F2018%2F10%2F18%2F%E4%B8%80%E4%BA%9B%E4%B8%8D%E8%A2%AB%E6%B3%A8%E6%84%8F%E7%9A%84%E7%AE%80%E5%8D%95%E7%82%B9%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[本文用于记录一些有用的小tip、被自己忽略或者遗忘的小知识点。]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+  </entry>
+  <entry>
+    <title><![CDATA[富文本渲染＋点击事件]]></title>
+    <url>%2F2018%2F10%2F11%2F%E5%AF%8C%E6%96%87%E6%9C%AC%E6%B8%B2%E6%9F%93%EF%BC%8B%E7%82%B9%E5%87%BB%E4%BA%8B%E4%BB%B6%2F</url>
+    <content type="text"><![CDATA[本编是研究新浪微博首页效果的笔记总结，总的来说需要处理的有两个部分： 特殊字符的渲染，比如用户名、话题、小图标、url等 特殊字符的点击事件，需要定位触发点在那段特殊字符中，并以此做不同的处理，如果点击的是非特殊字符，则响应cell的点击事件 接口文件在这里，demo的效果如下：假设一段文字所包含的内容分为普通子串＋4类特殊子串：用户名、图片、url、话题123456enum SpecilType &#123; case username case pic case url case topic&#125;从接口解析到这段文字之后，我们需要在模型中进行这段文字处理，包括：按照如上5种类型拆分这段文字、将拆分的子串按类别进行渲染并最终合并成一段新富文本串。拆分文字需要用到正则表达式，为方便使用，先稍微封装下正则的使用，如下123456789101112extension String &#123; func match(pattern: String) -&gt; [NSTextCheckingResult] &#123; guard let regular = try? NSRegularExpression(pattern: pattern, options: []) else &#123; return [] &#125; let range = NSMakeRange(0, count) return regular.matches(in: self, options: [], range: range) &#125;&#125;接下来将使用四个正则表示是来拆分文字中的用户名、图片、url、话题这四部分12345678// 匹配用户名let namePattern = "@[a-zA-Z0-9\\u4e00-\\u9fa5]+"// 匹配图片let picPattern = "\\[[\\u4e00-\\u9fa5]+\\]"// 使用简易的url正则匹配urllet urlPattern = "https://[a-zA-Z0-9/\\.-_]+"// 匹配话题let topicPattern = "#[a-aA-Z0-9\\u4e00-\\u9fa5]+#"我们将这4类子串封装成SpecialText模型，并且使用数组specialTexts来存储这些子串，但是由于拆分之后specialTexts储存的顺序已经不是原文字的顺序，所以我们需要根据SpecailText.range.location进行一次排序。现在已经有序的拿到了这四种特殊子串，还差普通子串，本该是对上面4中正则的取反匹配就可以了，但是这段正则我一直写不正确，所以换了一种思路。先把原文字和四种特殊子串直接转化成富文本类型，然后使用NSMutableAttributedString.replaceCharacters(in range: NSRange, with attrString: NSAttributedString)并替换掉原文字的富文本相应range就行了，剩下的就是普通文本了。这其中还有一个细节需要留意一下，我们获取的原文字中对应的图片是用几个文字描述的，比如[哈哈哈]，转成图片之后就只有一个字符长度，所以我们需要一个变量统计图片字符串转图片所减少的字符长度characterCount，所以我们在遍历处理specialTexts的时候，需要做specialText.rang.location - characterCount操作，这样获取的range的才是正确的。详细可见代码Status.swift至此已经完成了第一部分内容，特殊字符的渲染，就下来就要完成第二部分特殊文字和普通文字的点击事件。使用UILabel是无法完成这种功能的，UITextView可以，首先要对UITextView进行基本的设置，如下1234567// 除去上下边距(textContainerInset即使把左右设置为0，还是有左右边距的存在)textContainerInset = .zero// 除去左右边距textContainer.lineFragmentPadding = 0isEditable = falseisScrollEnabled = falseisSelectable = false主要使用的UITextView的接口 selectionRects(for range: UITextRange) -&gt; [UITextSelectionRect]返回的是UITextView的选中区域Rect数组 selectedTextRange: UITextRange?**UITextView的选中区域，这个变量不能不能直接设置 selectedRange: NSRange，设置UITextView的选中区域，将影响到属性2 思路就是当发成点击事件，我们遍历specailTexts，分别尝试设置选中区域为特殊子串的区域，即selectedRange = specailText.rane，然后selectedTextRange自动改变为特殊子串的区域，再通过selectionRects获取获取到该特殊子串的Rect数组，如果触点在其中该数组的其中一个Rect中，那么响应事件就是点击了该特殊子串，否则即是点击了其他的普通文字，详细代码在这里。完整demo在这里 插一个小bug前面设置了UITextView不能滚动，在cell高度自适应的时候，发现最后一行不能显示出来，解决办法是计算的高度+1作为cell的高度。]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>富文本</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[状态栏的系统bug]]></title>
     <url>%2F2018%2F10%2F10%2F%E7%8A%B6%E6%80%81%E6%A0%8F%E7%9A%84%E7%B3%BB%E7%BB%9Fbug%2F</url>
     <content type="text"><![CDATA[一般情况下，如果APP涉及到视频播放功能，就不可避免的会有播放页面的横竖屏切换功能，一般的处理方式都是在general面板中，选择需要支持的屏幕方向，然后TabController-&gt;NavController-&gt;NotPlayerController设置竖屏，在modal的PlayerController设置支持横屏。在AppDelete文件重新设置window，并且使用纯代码方式创建TabController及其RootController，结果发现在只支持竖屏的页面，状态栏还是自动三个方向旋转，即页面不旋转、导航栏旋转的诡异现象，代码如下1234567891011override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation &#123; return .portrait&#125; override var supportedInterfaceOrientations: UIInterfaceOrientationMask &#123; return .portrait&#125; override var shouldAutorotate: Bool &#123; return false&#125;尝试发现，如果在APPDelegate中重新设置了window，要把general面板的中Main Interface置空，bug解决。 设置APP支持的屏幕方向除了在general面板中勾选外，还有一种不常使用的方式，在APPDelegate中进行设置(覆盖general面板的设置)。123func application(_ application: UIApplication, supportedInterfaceOrientationsFor window: UIWindow?) -&gt; UIInterfaceOrientationMask &#123; return .portrait&#125; UIDeviceOrientation设备：听筒的方向，即home的反向，和APP页面的方向UIInterfaceOrientation是反着的]]></content>
