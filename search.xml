@@ -1,9 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[CoreImage]]></title>
+    <url>%2F2018%2F11%2F01%2FCoreImage%2F</url>
+    <content type="text"><![CDATA[之前的工作基本甚少牵扯到图片的处理，对CoreImage的框架并没有怎么了解过，同时图片处理对一些生活娱乐美颜类的APP扮演者至关重要的角色，于是打算跟着Core Image Programming Guide熟悉一下这个框架，查漏补缺，并做笔记。 CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有OpenGL、OpenGL ES、Metal这些图像处理技术背景就可以使用GPU来处理图片，也可以没有GCD编程背景完成图片的多核处理。CoreImage所提供的功能大致如下： 使用内置滤镜处理图片 使用滤镜组处理图片 自定义运行在GPU滤镜 图像质量的自动优化 面部特征识别(静态图片＋影音图像) 图像处理反馈 面部特征检测我们一般设置UIImageView.contentMode = .scaleAspectFit来防止图片被拉伸和超出边界被剪切，这样图片就可以等比例收缩且全部显示在UIImageView中，收缩比例为mini(宽收缩比例，高搜索比例)。当检测到面部特征时，我们可以拿到面部特征的数字信息，比如面部位置bounds、左眼位置leftEyePosition、右眼位置rightEyePosition、嘴巴位置mouthPosition，这些数字都以原图片(非UIImageView或者收缩后的图片)的坐标系来的，且坐标原点在左下角(mac os的坐标系)，所以使用这些数据之前，需要先对这些数据进行如下转换： 按照图片收缩的比例进行收缩 由于这些数据参考的坐标原点在左下角，所以实际的Y是boundsAfterScale.height - boundsAfterScale.maxY 由于图片进行等比例缩放，所以如果图片不是正方形，肯定在垂直或者水平的方向和UIImageView有空白，在转换x/y的时候要加上这部分的空白 图片自动优化CoreImage分析图片的柱状图？、面部区域内容、元数据，并根据这些情况返回一个优化该图片所需要使用的滤镜组，总共有5中滤镜: CIRedEyeCorrection修复强光导致的红眼(眼底血管导致)、白眼(眼球反光导致)、眼球模糊CIFaceBalance自动调色CIVibrance调整色彩饱和度CIToneCurve&lt;对比度调整CIHighlightShadowAdjust调整阴影 最后我们只需将返回的滤镜组运用到图片上即可完成优化。12345678910111213141516@IBAction func enhanceBtnDidClick(_ sender: UIButton) &#123; let ctx = CIContext() let originalImage = UIImage(named: &quot;girl.jpg&quot;)! var ciImage = CIImage(image: originalImage)! let filters = ciImage.autoAdjustmentFilters() for filter in filters &#123; print(filter.name) filter.setValue(ciImage, forKey: kCIInputImageKey) ciImage = filter.outputImage! &#125; let cgImage = ctx.createCGImage(ciImage, from: ciImage.extent)! processedImageView.image = UIImage(cgImage: cgImage)&#125;从输出结果中，发现使用了4个滤镜：CIFaceBalance、CIVibrance、CIToneCurve、CIHighlightShadowAdjust，因为图片本身已经很好了，所以效果看着不是太明显，但还是能看出来饱和度和对比度稍微提升一些。同时也发现了一点，前面提到的filter.output的时候，滤镜还没有发生作用，所以别直接将filter.ouput转化成UIimage显示到UIImageView上，而是使用ctx.createCGImage()，可能会得到莫名其妙图片，比如图片被拉伸了注！请不要过于信赖的CoreImage的自动优化，因为有时候不能识别出所有优化点，比如这个，虽然人物面部肤色更加饱和红润了，但是从返回的滤镜组发现，没有去红眼滤镜，说明没有识别出图片的红眼问题。 writing……………………… 注尝试options中有没有类似rect的参数，可以局部调整的。 修改上篇：a CIImage object describes how to produce an image (instead of containing image data)，所以cgimage 有bytesPerRow等等属性]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
+      <tags>
+        <tag>图像处理</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[iOSbug记录（一）]]></title>
     <url>%2F2018%2F10%2F31%2FiOSbug%E8%AE%B0%E5%BD%95%EF%BC%88%E4%B8%80%EF%BC%89%2F</url>
-    <content type="text"></content>
+    <content type="text"><![CDATA[dyld: Library not loaded… image not found:在buildsetting里面有一栏Always Embed Swift Standard Library设置YES 这个是之前碰到截的图，应该是通过ApplicationLoader上传ipa的时候发生的，打开ipa文件确实发现有两个Framework文件夹，内容都是相同的(系统静态库、第三方库)：在buildsetting里有一栏Embed SVN cleanup 问题和lock问题bug复现的步骤：更新QUBIC项目的时候，更新进度阻塞不前，点击cancle之后，选择强制退出。然后出现如下bug，点击open没有反应，且clean处于不可点击状态参考方案 显示隐藏文件com.apple.finder AppleShowAllFiles -bool true 本地项目中到.svn文件夹，在此文件下找到wc.db 数据库文件 安装NavicatPremium 使用Navicat打开wc.db 数据库文件中的wc_lock表和work_queue表，并且删除这两个表中的所有数据]]></content>
+      <categories>
+        <category>iOS</category>
+      </categories>
   </entry>
   <entry>
     <title><![CDATA[图片颜色的简单处理]]></title>

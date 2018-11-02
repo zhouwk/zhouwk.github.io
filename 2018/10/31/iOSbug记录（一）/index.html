@@ -79,18 +79,21 @@
 
 
 
-<meta name="description" content="记录日常技术学习和开发中遇到的一些点、优秀技术博客转载，主要为iOS+PHP方向">
+<meta name="description" content="dyld: Library not loaded… image not found:在buildsetting里面有一栏Always Embed Swift Standard Library设置YES 这个是之前碰到截的图，应该是通过ApplicationLoader上传ipa的时候发生的，打开ipa文件确实发现有两个Framework文件夹，内容都是相同的(系统静态库、第三方库)：在build">
 <meta name="keywords" content="周伟克的个人笔记">
 <meta property="og:type" content="article">
 <meta property="og:title" content="iOSbug记录（一）">
 <meta property="og:url" content="http://yoursite.com/2018/10/31/iOSbug记录（一）/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
-<meta property="og:description" content="记录日常技术学习和开发中遇到的一些点、优秀技术博客转载，主要为iOS+PHP方向">
+<meta property="og:description" content="dyld: Library not loaded… image not found:在buildsetting里面有一栏Always Embed Swift Standard Library设置YES 这个是之前碰到截的图，应该是通过ApplicationLoader上传ipa的时候发生的，打开ipa文件确实发现有两个Framework文件夹，内容都是相同的(系统静态库、第三方库)：在build">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-10-31T05:41:08.291Z">
+<meta property="og:image" content="http://yoursite.com/2018/10/31/iOSbug记录（一）/1.png">
+<meta property="og:image" content="http://yoursite.com/2018/10/31/iOSbug记录（一）/2.png">
+<meta property="og:updated_time" content="2018-11-02T10:14:32.249Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="iOSbug记录（一）">
-<meta name="twitter:description" content="记录日常技术学习和开发中遇到的一些点、优秀技术博客转载，主要为iOS+PHP方向">
+<meta name="twitter:description" content="dyld: Library not loaded… image not found:在buildsetting里面有一栏Always Embed Swift Standard Library设置YES 这个是之前碰到截的图，应该是通过ApplicationLoader上传ipa的时候发生的，打开ipa文件确实发现有两个Framework文件夹，内容都是相同的(系统静态库、第三方库)：在build">
+<meta name="twitter:image" content="http://yoursite.com/2018/10/31/iOSbug记录（一）/1.png">
 
 
 
@@ -347,6 +350,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -395,7 +420,18 @@
       
 
       
-        
+        <ol>
+<li><strong>dyld: Library not loaded… image not found</strong>:在<em>buildsetting</em>里面有一栏<em>Always Embed Swift Standard Library</em>设置YES</li>
+<li>这个是之前碰到截的图，应该是通过<em>ApplicationLoader</em>上传ipa的时候发生的，打开ipa文件确实发现有两个<em>Framework</em>文件夹，内容都是相同的(系统静态库、第三方库)：在<em>buildsetting</em>里有一栏<em>Embed </em><img src="/2018/10/31/iOSbug记录（一）/1.png"></li>
+<li>SVN cleanup 问题和lock问题<br>bug复现的步骤：更新<strong>QUBIC</strong>项目的时候，更新进度阻塞不前，点击cancle之后，选择强制退出。然后出现如下bug，点击open没有反应，且clean处于不可点击状态<img src="/2018/10/31/iOSbug记录（一）/2.png"><a href="http://blog.csdn.net/luochao_tj/article/details/46358145" target="_blank" rel="noopener">参考方案</a><ol>
+<li>显示隐藏文件<code>com.apple.finder AppleShowAllFiles -bool true</code></li>
+<li>本地项目中到.svn文件夹，在此文件下找到<strong>wc.db 数据库文件</strong></li>
+<li>安装<a href="https://www.waitsun.com/navicat-premium-11-2-18.html" target="_blank" rel="noopener">NavicatPremium</a></li>
+<li>使用Navicat打开<strong>wc.db 数据库文件</strong>中的<strong>wc_lock表</strong>和<strong>work_queue</strong>表，并且删除这两个表中的所有数据</li>
+</ol>
+</li>
+</ol>
+
       
     </div>
     
@@ -428,6 +464,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2018/11/01/CoreImage/" rel="prev" title="CoreImage">
+                CoreImage <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -507,7 +547,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>

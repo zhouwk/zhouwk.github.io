@@ -307,6 +307,182 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/CoreImage/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/01/CoreImage/" itemprop="url">CoreImage</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-01T10:43:01+08:00">
+                2018-11-01
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/01/CoreImage/" class="leancloud_visitors" data-flag-title="CoreImage">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>之前的工作基本甚少牵扯到图片的处理，对CoreImage的框架并没有怎么了解过，同时图片处理对一些生活娱乐美颜类的APP扮演者至关重要的角色，于是打算跟着<a href="https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html#//apple_ref/doc/uid/TP30001185-CH1-TPXREF101" target="_blank" rel="noopener">Core Image Programming Guide</a>熟悉一下这个框架，查漏补缺，并做笔记。</p>
+<p>CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有<em>OpenGL</em>、<em>OpenGL ES</em>、<em>Metal</em>这些图像处理技术背景就可以使用GPU来处理图片，也可以没有<em>GCD</em>编程背景完成图片的多核处理。<br><img src="/2018/11/01/CoreImage/1.png"><br>CoreImage所提供的功能大致如下：</p>
+<ol>
+<li>使用内置滤镜处理图片</li>
+<li>使用滤镜组处理图片</li>
+<li>自定义运行在GPU滤镜</li>
+<li>图像质量的自动优化</li>
+<li>面部特征识别(静态图片＋影音图像)</li>
+<li>图像处理反馈</li>
+</ol>
+<h2 id="面部特征检测"><a href="#面部特征检测" class="headerlink" title="面部特征检测"></a>面部特征检测</h2><p>我们一般设置<em>UIImageView.contentMode = .scaleAspectFit</em>来防止图片被拉伸和超出边界被剪切，这样图片就可以等比例收缩且全部显示在UIImageView中，收缩比例为<em>mini(宽收缩比例，高搜索比例)</em>。当检测到面部特征时，我们可以拿到面部特征的数字信息，比如面部位置<em>bounds</em>、左眼位置<em>leftEyePosition</em>、右眼位置<em>rightEyePosition</em>、嘴巴位置<em>mouthPosition</em>，这些数字都以原图片(非UIImageView或者收缩后的图片)的坐标系来的，且坐标原点在左下角(mac os的坐标系)，所以使用这些数据之前，需要先对这些数据进行如下转换：</p>
+<ol>
+<li>按照图片收缩的比例进行收缩</li>
+<li>由于这些数据参考的坐标原点在左下角，所以实际的Y是boundsAfterScale.height - boundsAfterScale.maxY</li>
+<li>由于图片进行等比例缩放，所以如果图片不是正方形，肯定在垂直或者水平的方向和UIImageView有空白，在转换x/y的时候要加上这部分的空白<img src="/2018/11/01/CoreImage/2.png">
+</li>
+</ol>
+<h2 id="图片自动优化"><a href="#图片自动优化" class="headerlink" title="图片自动优化"></a>图片自动优化</h2><p>CoreImage分析图片的柱状图？、面部区域内容、元数据，并根据这些情况返回一个优化该图片所需要使用的滤镜组，总共有5中滤镜:</p>
+<table><tr><td>CIRedEyeCorrection</td><td>修复强光导致的红眼(眼底血管导致)、白眼(眼球反光导致)、眼球模糊</td></tr><tr><td>CIFaceBalance</td><td>自动调色</td></tr><tr><td>CIVibrance</td><td>调整色彩饱和度</td></tr><tr><td>CIToneCurve</td><td>&lt;对比度调整</td></tr><tr><td>CIHighlightShadowAdjust</td><td>调整阴影</td></tr></table>
+
+<p>最后我们只需将返回的滤镜组运用到图片上即可完成优化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func enhanceBtnDidClick(_ sender: UIButton) &#123;</span><br><span class="line">        </span><br><span class="line">        let ctx = CIContext()</span><br><span class="line">        let originalImage = UIImage(named: &quot;girl.jpg&quot;)!</span><br><span class="line">        var ciImage = CIImage(image: originalImage)!</span><br><span class="line">        let filters = ciImage.autoAdjustmentFilters()</span><br><span class="line">        </span><br><span class="line">        for filter in filters &#123;</span><br><span class="line">            print(filter.name)</span><br><span class="line">            filter.setValue(ciImage, forKey: kCIInputImageKey)</span><br><span class="line">            ciImage = filter.outputImage!</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        let cgImage = ctx.createCGImage(ciImage, from: ciImage.extent)!</span><br><span class="line">        processedImageView.image = UIImage(cgImage: cgImage)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>从输出结果中，发现使用了4个滤镜：CIFaceBalance、CIVibrance、CIToneCurve、CIHighlightShadowAdjust，因为图片本身已经很好了，所以效果看着不是太明显，但还是能看出来饱和度和对比度稍微提升一些<img src="/2018/11/01/CoreImage/3.jpg">。<br><span style="color:red">同时也发现了一点</span>，前面提到的<em>filter.output</em>的时候，滤镜还没有发生作用，所以别直接将<em>filter.ouput</em>转化成UIimage显示到UIImageView上，而是使用<em>ctx.createCGImage()</em>，可能会得到莫名其妙图片，比如图片被拉伸了<img src="/2018/11/01/CoreImage/4.png"><br><span style="color:red">注！</span>请不要过于信赖的CoreImage的自动优化，因为有时候不能识别出所有优化点，比如这个，虽然人物面部肤色更加饱和红润了，但是从返回的滤镜组发现，没有去红眼滤镜，说明没有识别出图片的红眼问题。<br><img src="/2018/11/01/CoreImage/5.jpg"></p>
+<p>writing………………………</p>
+<p><span style="color:red">注</span>尝试options中有没有类似rect的参数，可以局部调整的。</p>
+<p> 修改上篇：a CIImage object describes how to produce an image (instead of containing image data)，所以cgimage 有bytesPerRow等等属性</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/31/iOSbug记录（一）/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -349,6 +525,28 @@
           </span>
 
           
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
 
           
             
@@ -389,7 +587,18 @@
       
         
           
-            
+            <ol>
+<li><strong>dyld: Library not loaded… image not found</strong>:在<em>buildsetting</em>里面有一栏<em>Always Embed Swift Standard Library</em>设置YES</li>
+<li>这个是之前碰到截的图，应该是通过<em>ApplicationLoader</em>上传ipa的时候发生的，打开ipa文件确实发现有两个<em>Framework</em>文件夹，内容都是相同的(系统静态库、第三方库)：在<em>buildsetting</em>里有一栏<em>Embed </em><img src="/2018/10/31/iOSbug记录（一）/1.png"></li>
+<li>SVN cleanup 问题和lock问题<br>bug复现的步骤：更新<strong>QUBIC</strong>项目的时候，更新进度阻塞不前，点击cancle之后，选择强制退出。然后出现如下bug，点击open没有反应，且clean处于不可点击状态<img src="/2018/10/31/iOSbug记录（一）/2.png"><a href="http://blog.csdn.net/luochao_tj/article/details/46358145" target="_blank" rel="noopener">参考方案</a><ol>
+<li>显示隐藏文件<code>com.apple.finder AppleShowAllFiles -bool true</code></li>
+<li>本地项目中到.svn文件夹，在此文件下找到<strong>wc.db 数据库文件</strong></li>
+<li>安装<a href="https://www.waitsun.com/navicat-premium-11-2-18.html" target="_blank" rel="noopener">NavicatPremium</a></li>
+<li>使用Navicat打开<strong>wc.db 数据库文件</strong>中的<strong>wc_lock表</strong>和<strong>work_queue</strong>表，并且删除这两个表中的所有数据</li>
+</ol>
+</li>
+</ol>
+
           
         
       
@@ -1642,163 +1851,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/图片验证码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouwk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouwk的个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/08/图片验证码/" itemprop="url">图片验证码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T17:53:35+08:00">
-                2018-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/08/图片验证码/" class="leancloud_visitors" data-flag-title="图片验证码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>记录学习绘图章节写的一个图片二维码demo和其中的几个点<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/08/图片验证码/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1853,7 +1905,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">22</span>
+                  <span class="site-state-item-count">23</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
