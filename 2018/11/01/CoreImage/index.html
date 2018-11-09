@@ -82,7 +82,7 @@
 <meta name="description" content="之前的工作基本甚少牵扯到图片的处理，对CoreImage的框架并没有怎么了解过，同时图片处理对一些生活娱乐美颜类的APP扮演者至关重要的角色，于是打算跟着Core Image Programming Guide熟悉一下这个框架，查漏补缺，并做笔记。 CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有OpenGL、OpenGL ES、Met">
 <meta name="keywords" content="图像处理">
 <meta property="og:type" content="article">
-<meta property="og:title" content="CoreImage">
+<meta property="og:title" content="基于CoreImage的图像处理">
 <meta property="og:url" content="http://yoursite.com/2018/11/01/CoreImage/index.html">
 <meta property="og:site_name" content="zhouwk的个人笔记">
 <meta property="og:description" content="之前的工作基本甚少牵扯到图片的处理，对CoreImage的框架并没有怎么了解过，同时图片处理对一些生活娱乐美颜类的APP扮演者至关重要的角色，于是打算跟着Core Image Programming Guide熟悉一下这个框架，查漏补缺，并做笔记。 CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有OpenGL、OpenGL ES、Met">
@@ -92,9 +92,9 @@
 <meta property="og:image" content="http://yoursite.com/2018/11/01/CoreImage/3.jpg">
 <meta property="og:image" content="http://yoursite.com/2018/11/01/CoreImage/4.png">
 <meta property="og:image" content="http://yoursite.com/2018/11/01/CoreImage/5.jpg">
-<meta property="og:updated_time" content="2018-11-02T10:09:04.117Z">
+<meta property="og:updated_time" content="2018-11-07T09:51:13.819Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="CoreImage">
+<meta name="twitter:title" content="基于CoreImage的图像处理">
 <meta name="twitter:description" content="之前的工作基本甚少牵扯到图片的处理，对CoreImage的框架并没有怎么了解过，同时图片处理对一些生活娱乐美颜类的APP扮演者至关重要的角色，于是打算跟着Core Image Programming Guide熟悉一下这个框架，查漏补缺，并做笔记。 CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有OpenGL、OpenGL ES、Met">
 <meta name="twitter:image" content="http://yoursite.com/2018/11/01/CoreImage/1.png">
 
@@ -132,7 +132,7 @@
 
 
 
-  <title>CoreImage | zhouwk的个人笔记</title>
+  <title>基于CoreImage的图像处理 | zhouwk的个人笔记</title>
   
 
 
@@ -330,7 +330,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">CoreImage</h1>
+          <h1 class="post-title" itemprop="name headline">基于CoreImage的图像处理</h1>
         
 
         <div class="post-meta">
@@ -392,7 +392,7 @@
 
           
           
-             <span id="/2018/11/01/CoreImage/" class="leancloud_visitors" data-flag-title="CoreImage">
+             <span id="/2018/11/01/CoreImage/" class="leancloud_visitors" data-flag-title="基于CoreImage的图像处理">
                <span class="post-meta-divider">|</span>
                <span class="post-meta-item-icon">
                  <i class="fa fa-eye"></i>
@@ -424,15 +424,19 @@
 
       
         <p>之前的工作基本甚少牵扯到图片的处理，对CoreImage的框架并没有怎么了解过，同时图片处理对一些生活娱乐美颜类的APP扮演者至关重要的角色，于是打算跟着<a href="https://developer.apple.com/library/archive/documentation/GraphicsImaging/Conceptual/CoreImaging/ci_intro/ci_intro.html#//apple_ref/doc/uid/TP30001185-CH1-TPXREF101" target="_blank" rel="noopener">Core Image Programming Guide</a>熟悉一下这个框架，查漏补缺，并做笔记。</p>
-<p>CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有<em>OpenGL</em>、<em>OpenGL ES</em>、<em>Metal</em>这些图像处理技术背景就可以使用GPU来处理图片，也可以没有<em>GCD</em>编程背景完成图片的多核处理。<br><img src="/2018/11/01/CoreImage/1.png"><br>CoreImage所提供的功能大致如下：</p>
+<p>CoreImage是高性能处理分析图像和影音图像的技术，并将晦涩难懂底部实现细节封装成简单的API，开发人没有<em>OpenGL</em>、<em>OpenGL ES</em>、<em>Metal</em>这些图像处理技术背景就可以使用GPU来处理图片，也可以没有<em>GCD</em>编程背景完成图片的多核处理。<br><img src="/2018/11/01/CoreImage/1.png"><br>本文将对对CoreImage的常用功能进行介绍：</p>
 <ol>
-<li>使用内置滤镜处理图片</li>
-<li>使用滤镜组处理图片</li>
-<li>自定义运行在GPU滤镜</li>
-<li>图像质量的自动优化</li>
-<li>面部特征识别(静态图片＋影音图像)</li>
-<li>图像处理反馈</li>
+<li>滤镜使用</li>
+<li>图片优化</li>
+<li>内容识别(人脸、条形码、文本)</li>
 </ol>
+<h2 id="滤镜"><a href="#滤镜" class="headerlink" title="滤镜"></a>滤镜</h2><p>CoreImage目前提供了两百左右种类滤镜，并对他们进行了分类， 我们可以使用<em>filterNames(inCategory: categoryName)</em>和 <em>filterNames(inCategories: categoryArray)</em>接口分类检索这些内置滤镜，并且获取这些内置类型的相关信息：名字、inputKey、默认参数、滤镜支持调节的参数，基于这些内置滤镜和他们的参数，我们可以实现一个基础的多效果且可调节的图片特效功能<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">/// 获取所有内置的滤镜</span></span><br><span class="line"><span class="function"><span class="keyword">func</span> <span class="title">queryAllBiuldFilters</span><span class="params">()</span></span> &#123;</span><br><span class="line">    </span><br><span class="line">   <span class="keyword">let</span> allFilterNames = <span class="type">CIFilter</span>.filterNames(inCategory: <span class="literal">nil</span>)</span><br><span class="line">   <span class="comment">// inCategory获取指定种类的滤镜，nil为所有滤镜</span></span><br><span class="line">   <span class="built_in">print</span>(allFilterNames.<span class="built_in">count</span>);</span><br><span class="line">   <span class="keyword">for</span> filterName <span class="keyword">in</span> allFilterNames &#123;</span><br><span class="line">       <span class="built_in">print</span>(<span class="string">"-----------------------------"</span>)</span><br><span class="line">       <span class="keyword">let</span> <span class="built_in">filter</span> = <span class="type">CIFilter</span>(name: filterName)!</span><br><span class="line">       <span class="built_in">print</span>(filterName)</span><br><span class="line">       <span class="built_in">print</span>(<span class="built_in">filter</span>.inputKeys)</span><br><span class="line">       <span class="built_in">print</span>(<span class="built_in">filter</span>.attributes)</span><br><span class="line">   &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>按照滤镜效果来分的话，分为如下几类</p>
+<table><tr><td>Effect type</td><td>Indicates</td></tr><tr><td>kCICategoryDistortionEffect</td><td>Distortion effects, such as bump, twirl, hole</td></tr><tr><td>kCICategoryGeometryAdjustment</td><td>Geometry adjustment, such as affine transform, crop, perspective transform</td></tr><tr><td>kCICategoryCompositeOperation</td><td>Compositing, such as source over, minimum, source atop, color dodge blend mode</td></tr><tr><td>kCICategoryHalftoneEffect</td><td>Halftone effects, such as screen, line screen, hatched</td></tr><tr><td>kCICategoryColorAdjustment</td><td>Color adjustment, such as gamma adjust, white point adjust, exposure</td></tr><tr><td>kCICategoryColorEffect</td><td>Color effect, such as hue adjust, posterize</td></tr><tr><td>kCICategoryTransition</td><td>Transitions between images, such as dissolve, disintegrate with mask, swipe</td></tr><tr><td>kCICategoryTileEffect</td><td>Tile effect, such as parallelogram, triangle</td></tr><tr><td>kCICategoryGenerator</td><td>Image generator, such as stripes, constant color, checkerboard</td></tr><tr><td>kCICategoryGradient</td><td>Gradient, such as axial, radial, Gaussian</td></tr><tr><td>kCICategoryStylize</td><td>Stylize, such as pixellate, crystallize</td></tr><tr><td>kCICategorySharpen</td><td>Sharpen, luminance</td></tr><tr></tr><tr><td>kCICategoryBlur</td><td>Blur, such as Gaussian, zoom, motion</td></tr></table>
+
+<p>按照用法来分的话，分为如下几类</p>
+<table><tr><td>Use</td><td>Indicates</td></tr><tr><td>kCICategoryStillImage</td><td>Can be used for still images</td></tr><tr><td>kCICategoryVideo</td><td>Can be used for video</td></tr><tr><td>kCICategoryInterlaced</td><td>Can be used for interlaced images</td></tr><tr><td>kCICategoryNonSquarePixels</td><td>Can be used for nonsquare pixels</td></tr><tr><td>kCICategoryHighDynamicRange</td><td>Can be used for high-dynamic range pixels</td></tr></table>
+
+<p>我们除了使用这些单个滤镜之外，还可以尝试将若干有意思的滤镜进行组合，形成效果更好的滤镜组(也可以说一个新滤镜)提供给用户</p>
 <h2 id="面部特征检测"><a href="#面部特征检测" class="headerlink" title="面部特征检测"></a>面部特征检测</h2><p>我们一般设置<em>UIImageView.contentMode = .scaleAspectFit</em>来防止图片被拉伸和超出边界被剪切，这样图片就可以等比例收缩且全部显示在UIImageView中，收缩比例为<em>mini(宽收缩比例，高搜索比例)</em>。当检测到面部特征时，我们可以拿到面部特征的数字信息，比如面部位置<em>bounds</em>、左眼位置<em>leftEyePosition</em>、右眼位置<em>rightEyePosition</em>、嘴巴位置<em>mouthPosition</em>，这些数字都以原图片(非UIImageView或者收缩后的图片)的坐标系来的，且坐标原点在左下角(mac os的坐标系)，所以使用这些数据之前，需要先对这些数据进行如下转换：</p>
 <ol>
 <li>按照图片收缩的比例进行收缩</li>
@@ -444,6 +448,7 @@
 <table><tr><td>CIRedEyeCorrection</td><td>修复强光导致的红眼(眼底血管导致)、白眼(眼球反光导致)、眼球模糊</td></tr><tr><td>CIFaceBalance</td><td>自动调色</td></tr><tr><td>CIVibrance</td><td>调整色彩饱和度</td></tr><tr><td>CIToneCurve</td><td>&lt;对比度调整</td></tr><tr><td>CIHighlightShadowAdjust</td><td>调整阴影</td></tr></table>
 
 <p>最后我们只需将返回的滤镜组运用到图片上即可完成优化。<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line">@IBAction func enhanceBtnDidClick(_ sender: UIButton) &#123;</span><br><span class="line">        </span><br><span class="line">        let ctx = CIContext()</span><br><span class="line">        let originalImage = UIImage(named: &quot;girl.jpg&quot;)!</span><br><span class="line">        var ciImage = CIImage(image: originalImage)!</span><br><span class="line">        let filters = ciImage.autoAdjustmentFilters()</span><br><span class="line">        </span><br><span class="line">        for filter in filters &#123;</span><br><span class="line">            print(filter.name)</span><br><span class="line">            filter.setValue(ciImage, forKey: kCIInputImageKey)</span><br><span class="line">            ciImage = filter.outputImage!</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        let cgImage = ctx.createCGImage(ciImage, from: ciImage.extent)!</span><br><span class="line">        processedImageView.image = UIImage(cgImage: cgImage)</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>从输出结果中，发现使用了4个滤镜：CIFaceBalance、CIVibrance、CIToneCurve、CIHighlightShadowAdjust，因为图片本身已经很好了，所以效果看着不是太明显，但还是能看出来饱和度和对比度稍微提升一些<img src="/2018/11/01/CoreImage/3.jpg">。<br><span style="color:red">同时也发现了一点</span>，前面提到的<em>filter.output</em>的时候，滤镜还没有发生作用，所以别直接将<em>filter.ouput</em>转化成UIimage显示到UIImageView上，而是使用<em>ctx.createCGImage()</em>，可能会得到莫名其妙图片，比如图片被拉伸了<img src="/2018/11/01/CoreImage/4.png"><br><span style="color:red">注！</span>请不要过于信赖的CoreImage的自动优化，因为有时候不能识别出所有优化点，比如这个，虽然人物面部肤色更加饱和红润了，但是从返回的滤镜组发现，没有去红眼滤镜，说明没有识别出图片的红眼问题。<br><img src="/2018/11/01/CoreImage/5.jpg"></p>
+<p>// 列举出滤镜效果 <table></table></p>
 <p>writing………………………</p>
 <p><span style="color:red">注</span>尝试options中有没有类似rect的参数，可以局部调整的。</p>
 <p> 修改上篇：a CIImage object describes how to produce an image (instead of containing image data)，所以cgimage 有bytesPerRow等等属性</p>
@@ -659,7 +664,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#面部特征检测"><span class="nav-number">1.</span> <span class="nav-text">面部特征检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片自动优化"><span class="nav-number">2.</span> <span class="nav-text">图片自动优化</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#滤镜"><span class="nav-number">1.</span> <span class="nav-text">滤镜</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#面部特征检测"><span class="nav-number">2.</span> <span class="nav-text">面部特征检测</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#图片自动优化"><span class="nav-number">3.</span> <span class="nav-text">图片自动优化</span></a></li></ol></div>
             
 
           </div>
