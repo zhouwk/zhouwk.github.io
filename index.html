@@ -307,6 +307,494 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/轻轻考医学审核被拒总结/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/01/26/轻轻考医学审核被拒总结/" itemprop="url">轻轻考医学审核被拒总结</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-01-26T23:52:39+08:00">
+                2019-01-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/01/26/轻轻考医学审核被拒总结/" class="leancloud_visitors" data-flag-title="轻轻考医学审核被拒总结">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote><p>苹果虐我千百遍，我待苹果如初恋</p>
+<footer><strong>zhouwk -- 被苹果审核把脸按在地上狠狠摩擦的iOSer</strong></footer></blockquote>
+<img src="/2019/01/26/轻轻考医学审核被拒总结/1.gif">
+<p>虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一个半月的工作状态就是当日提交审核、次日被拒、被拒当天再次提审、再次日接着被拒，如此循环，几乎让我打算打退堂鼓了。</p>
+<p>终于1.0成功上线之后，我就开始了这篇审核趟雷笔记，但是越来越忙，便只有个开头搁置了，今天抽了个空完成它，刚好也想随便写些东西。</p>
+<p>APP的类型是在线教育的，包含了付费课程购买，所以很清晰的知道是要走内购的，但是毕竟30%的内购抽成，公司还是不太乐意承担的，于是尝试支付宝、微信，不出意外的被拒了<span style="color:red">3.1 PAYMENT</span>。</p>
+<p>初次被拒之后，为了先把APP上线(历史原因，已经比安卓晚了一两个月)，并没有直接接入内购，而是隐藏付费内容/付费UI，于是APP成了一个不包含付费课程的APP，提交审核，再次被拒。</p>
+<p>于是正式接入内购，但是接入内购的出发点并不单纯。我们发现市场同类型的APP依然在使用支付宝、微信，猜测是在1.0版本走了内购(相对而言1.0版本审核较严)，后续版本再换回支付宝、微信。于是我们打算带着这种想法接入内购，为了日后方便切换回支付宝、微信，我们在APP中保留了支付宝、微信的SDK和支付逻辑，提交审核被拒，同时又触犯了<span style="color: red">2.3.1 Don’t include any hidden or undocumented features in your app</span>。苹果发现了我们的行径，隐藏功能在苹果看来是很严重的，尤其是支付相关的，绕过苹果内购毕竟直接侵犯了苹果利益，接入一些审核群发现这样做绕过苹果内购的，很多被苹果给了<span style="color:red">2.1大礼包</span>，延期审核(听他们反馈延期半年的都有)，更为严重的直接14天通知封号了。现在想想，虽然此次被拒了，但是并没有给我们这些严厉处罚，也没有延期审核，依然是当天提交审核、次日被拒的高反馈效率  😑  很无奈。</p>
+<p>我们删除了支付宝、微信的支付逻辑，提交审核，再次被拒，反馈同样是违反了上述两个规则，当时就比较奇怪了，明明已经把发起支付宝、微信的逻辑都去掉了，换成了内购的逻辑，怎么还说我们企图隐藏第三方支付、绕过苹果内购呢，后来想到可能是SDK的问题，于是删除了支付宝的SDK，由于有微信分享，所以认为微信的SDK应该没问题。为了避免因为同样的原因被拒绝，我删除了项目中所有支付宝字样，和微信SDK的.h文件中的支付字样，提交审核，终于苹果认为我们不再违反上述的两条规则，但是结果还是被拒。</p>
+<p>此次被拒和接下来的一次被拒就是常见的bug问题，违反了<span style="color:red">2.1 App Completeness</span>，都发生在充值页面，先是在一定条件下loading不能消失掉，接下来的一次就是纯属自作聪明、搬起石头砸自己的脚，因为有些内购项目金额是比较大的，万元左右的，而这些内购项目必须手动一个一个加入到<em>iTunes connect</em>，于是我在获取请求内购商品信息的之后，加了一步和APP服务器价格比对的过程，如果价格不对的话，就提示价格异常，这个在我测试的时候是完全正常的、走得通的逻辑，但是审核给的反馈是点击所有的内购项目，都会出现价格异常的提示，懵了！！！难道的是苹果审核时候获取的价格是美元单位的？于是我把手机的地区、语言都设置成美国的，依旧没复现这种情况，真是实打实的自作聪明、搬起石头砸自己的脚。</p>
+<p>有一次被拒是因为提交审核的一张应用市场图包含了<span style="color:red">免费</span>字样。</p>
+<p>一次拒绝是APP的介绍中包含了支付的外部链接，实际说的是我们的官网，我们在APP的介绍中加入了官网地址，违反了内购相关的规则，修改过之后，接下来两次拒绝还是同样理由，起初是怎么都找不到，就在审核备注中写实在找不到官网链接，让审核人员告诉我们在哪个地方发现的，隔天审核人员打来电话，才知道<em>iTunes connect</em>中的APP介绍加了多语言，我们只去除了中文的，好吧，运营的锅！！！</p>
+<p>一次拒绝反馈是：APP有些页面并不是基于用户账号的，而APP在入口近强制了用户登录，于是做了游客使用。</p>
+<p>接下来的一次拒绝反馈是：内购不能强制用户登录，这真的让人无语了，因为自然而然的观点是没有账号你买个🐔儿啊，而且有些APP是内购强制登录的，好吧，苹果是爸爸！！我们又做了游客购买。</p>
+<p>最后一次拒绝也是最胆战心惊的一次，在这次提交审核当天的下午我突然发现一些HTML页面会偶然出现<span style="color:red">赌博、贷款、彩票</span>的内容，而不是本该出现的内容，出现这种情况的原因是用了小厂的短地址服务，服务厂商篡改了页面地址。于是赶紧让运营删这些东西，结果运营没当回事儿，次日公司年会的时候，结结实实的收到了2.1大礼包，洋洋洒洒列举了十条怀疑我们违规的地方，苹果认为我们的APP是一个马甲包，大家应该会知道苹果对马甲包的扼杀力度有多大吧，心凉凉，赶紧直接把有HTML相关功能的模块直接干掉，然后承认出现此次问题的原因(强调并非我们本意)，重新提交审核，进入延期审核状态，加了一些马甲包的群，很多人的基本观点是2.1基本没救了，账号都可能保不住了，延期审核几个月都有可能，彻底心凉凉，等了将近一周，本打算再不进入审核状态就在下周一毛线换bundle id重写提交，还好在周五进入了审核状态，周六通过了审核。</p>
+<p>至此苦逼的心惊胆战的1.0审核之路结束，到目前两三个月的时间又提交了5次更新，终于恢复正常状态：当天下午提交、次日早上通过。</p>
+<p>其实本来并没有写这篇笔记的必要，因为这些被拒的内容发生一次就基本不会忘记了，但是想想还是写写吧，算是一篇日记，记录下自己的心情。</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/26/Laravel零散小记/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/26/Laravel零散小记/" itemprop="url">Laravel零散小记</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-26T17:31:25+08:00">
+                2018-11-26
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/26/Laravel零散小记/" class="leancloud_visitors" data-flag-title="Laravel零散小记">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <ol>
+<li><em>blade</em>渲染取限定长度字符:<code>{ {str_limit($post-&gt;content, 20, &#39;.....&#39;)} }</code></li>
+<li><em>blade</em>渲染出html效果(默认是把源数据以纯文本的形式展示): <code>{!! str_limit($post-&gt;content, 20, &#39;.......&#39;) !!}</code></li>
+<li><em>form</em>的提交方式是只有<em>get、post</em>，但是Laravel还可以使用<em>put patch delete</em>，如果要使用这三种方式，需在<em>form</em>中注明该方式<code>&lt;input type=&quot;hidden&quot; name=&quot;_method&quot; value=&quot;PUT(patch、delete)&quot;&gt;</code></li>
+</ol>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/15/融云IM/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2018/11/15/融云IM/" itemprop="url">融云IM</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-11-15T11:43:04+08:00">
+                2018-11-15
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2018/11/15/融云IM/" class="leancloud_visitors" data-flag-title="融云IM">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>–IM在现在的APP中已是很普通常见的功能了，而我最后使用IM功能已是两年半之前的一个APP，时间很久，各个IM厂商的SDK更新很大，所以趁着手里比较闲，抽了两天时间过了一下IM的实现。我是以融云SDK为入手点，完整的过了一下它的开发文档，最终形成一个具有好友系统的聊天demo，这边笔记是用来记录官方文档中比较重要的点和完成demo过程中想到的一些内容。</p>
+<h2 id="融云SDK的消息推送机制"><a href="#融云SDK的消息推送机制" class="headerlink" title="融云SDK的消息推送机制"></a>融云SDK的消息推送机制</h2><p>如果APP保持和融云服务器的长连接(在线)，则融云服务器会直接把消息推送给APP，APP再把消息内容以本地推送的形式展示出来(<span style="color:red">需要确定是如果是前台会发推送吗<span>)，流程图如下：<img src="/2018/11/15/融云IM/1.png"><br>如果APP和融云服务器没有保持长连接(离线)，则融云服务器会把消息推送给APNs，再由APNs将消息推送给手机，流程图如下如下：<img src="/2018/11/15/融云IM/2.png"><br>注：应用切换至后台 2 分钟后，将自动切断与服务器的连接，此时应用为离线状态，新消息将会以 Push 方式推送。 用户在线状态下，应用在前台显示时，不会收到消息通知。</span></span></p>
+<h2 id="token"><a href="#token" class="headerlink" title="token"></a>token</h2><p>融云并不负责维护好友关系，也不需要这些数据，所以完成IM，APP的服务器至少需要完成两个工作是：维护好友关系和请求RCtoken</p>
+<p>APP服务器和融云服务器的RCtoken交换机制：用户通过APP的账号密码登录APP服务器，APP服务器再向融云服务器请求该用户的RCtoken，并将RCtoken下发至APP，APP携带次RCtoken进行通信。<br><img src="/2018/11/15/融云IM/3.png"><br>demo(好友体系、头像自己存储)</p>
+<h2 id="错误："><a href="#错误：" class="headerlink" title="错误："></a>错误：</h2><ol>
+<li>不要用同一个token多次connect, sdk会自动做好重连工作！！！</li>
+<li>用户信息提供者为空请检查是否设置 [RCIM sharedRCIM].userInfoDataSource ,并且保证设置的对象没有被释放 [RCIM sharedRCIM].userInfoDataSource 是 weak 属性</li>
+<li>自定义聊天页面的时候，创建该页面的时候，直接设置回话类型，如果在viewdidload中进行设置，会出现再次进入该页面聊天记录不显示的现象。(考虑会话列表也是)</li>
+</ol>
+<p>使用自带的聊天界面：<br>弹出的键盘包含了：1. 语音功能、2 loc 功能、 3. 发送本地图片功能、4、图片保存功能，5使用相机功能，<br>所有要完成如下操作：1. 导入语音的sdk 2. loc 授权，3. 图片使用授权 4. 保存图片授权、5相机授权，否则使用到以上的任意一个功能点都会导致崩溃，或者屏蔽这些功能，看截图</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/11/01/CoreImage/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1373,459 +1861,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/09/13/Nginx错误记录/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouwk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouwk的个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/09/13/Nginx错误记录/" itemprop="url">Nginx错误记录(后续补充ing)</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-09-13T00:53:57+08:00">
-                2018-09-13
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/09/13/Nginx错误记录/" class="leancloud_visitors" data-flag-title="Nginx错误记录(后续补充ing)">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ol>
-<li>html文件正常解析，而PHP文件没有解析直接下载<figure class="highlight plain"><figcaption><span>去除nginx.conf中PHP文件的注释</span></figcaption><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">root your_root_path</span><br><span class="line">location ~ \.php$ &#123;</span><br><span class="line">  fastcgi_pass   127.0.0.1:9000;</span><br><span class="line">  fastcgi_index  index.php;</span><br><span class="line">  fastcgi_param  SCRIPT_FILENAME  $document_root$fastcgi_script_name;</span><br><span class="line">  # 默认是fastcgi_param  SCRIPT_FILENAME  /scripts$fastcgi_script_name 会导致file not found 的404问题</span><br><span class="line">  include        fastcgi_params;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/09/13/Nginx错误记录/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/10/PHP-session/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouwk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouwk的个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/10/PHP-session/" itemprop="url">PHP_session</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-10T16:56:40+08:00">
-                2018-08-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/10/PHP-session/" class="leancloud_visitors" data-flag-title="PHP_session">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Session的学习笔记</p>
-<ol>
-<li><p>cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不会重新开始有效期，设置它的有效时间 应该会重新生成一个新的有效时间</p>
-</li>
-<li><p>以最后设置session的时间为开始点， 60m之后删除整个session文件</p>
-</li>
-</ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ini_set(&apos;session.gc_maxlifetime&apos;, 60);  // 60秒失效</span><br><span class="line">ini_set(&apos;session.gc_divisor&apos;, 100);    // 失效后触发gc_probability / gc_divisor 的概率删除session文件</span><br><span class="line">ini_set(&apos;session.gc_probability&apos;, 100);</span><br></pre></td></tr></table></figure>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/08/08/图片验证码/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouwk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouwk的个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/08/08/图片验证码/" itemprop="url">图片验证码</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-08-08T17:53:35+08:00">
-                2018-08-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/08/08/图片验证码/" class="leancloud_visitors" data-flag-title="图片验证码">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>记录学习绘图章节写的一个图片二维码demo和其中的几个点<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/08/08/图片验证码/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1880,7 +1915,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1902,7 +1937,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -1969,7 +2004,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>

@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="zhouwk的个人笔记">
 <meta property="og:description" content="Session的学习笔记  cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2018-08-10T09:47:26.612Z">
+<meta property="og:updated_time" content="2018-11-20T10:00:10.600Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="PHP_session">
 <meta name="twitter:description" content="Session的学习笔记  cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不">
@@ -400,9 +400,9 @@
 <li><p>cookie的有效时间是setcookie设置的， session的有效期是gc.maxlifttime设置的，但是通过$_Cookie中的PHPSeesionID找到，这个默认有效期是0，即关闭浏览器这个cookie就没了，那也就是说对应的session也就没了。如果在session有效期内重新设置了session，那么它的有效期会重新开始，cookie 设置值应该不会重新开始有效期，设置它的有效时间 应该会重新生成一个新的有效时间</p>
 </li>
 <li><p>以最后设置session的时间为开始点， 60m之后删除整个session文件</p>
+ <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">ini_set(&apos;session.gc_maxlifetime&apos;, 60);  // 60秒失效</span><br><span class="line">ini_set(&apos;session.cookie_lifetime&apos;, 60); // 存储SESSIONID的cookie有效期 / 作用域</span><br><span class="line">//session_set_cookie_params(60, &apos;/&apos;);作用同上 </span><br><span class="line">ini_set(&apos;session.gc_divisor&apos;, 1);    // 失效后触发gc_probability / gc_divisor 的概率删除session文件</span><br><span class="line">ini_set(&apos;session.gc_probability&apos;, 1);</span><br></pre></td></tr></table></figure>
 </li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">ini_set(&apos;session.gc_maxlifetime&apos;, 60);  // 60秒失效</span><br><span class="line">ini_set(&apos;session.gc_divisor&apos;, 100);    // 失效后触发gc_probability / gc_divisor 的概率删除session文件</span><br><span class="line">ini_set(&apos;session.gc_probability&apos;, 100);</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -519,7 +519,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">23</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -541,7 +541,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">21</span>
+                  <span class="site-state-item-count">25</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -608,7 +608,7 @@
 
     <footer id="footer" class="footer">
       <div class="footer-inner">
-        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2019</span>
   <span class="with-love">
     <i class="fa fa-user"></i>
   </span>
