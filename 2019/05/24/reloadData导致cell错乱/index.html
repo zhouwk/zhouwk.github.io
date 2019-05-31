@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="zhouwk的个人笔记">
 <meta property="og:description" content="Providing a nonnegative estimate of the height of rows can improve the performance of loading the table view. If the table contains variable height rows, it might be expensive to calculate all their h">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-05-31T01:38:10.608Z">
+<meta property="og:updated_time" content="2019-05-31T02:25:20.894Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="reloadData导致cell错乱">
 <meta name="twitter:description" content="Providing a nonnegative estimate of the height of rows can improve the performance of loading the table view. If the table contains variable height rows, it might be expensive to calculate all their h">
@@ -396,9 +396,9 @@
 
       
         <blockquote><p>Providing a nonnegative estimate of the height of rows can improve the performance of loading the table view. If the table contains variable height rows, it might be expensive to calculate all their heights when the table loads. Estimation allows you to defer some of the cost of geometry calculation from load time to scrolling time.</p>
-<p>The default value is automaticDimension, which means that the table view selects an estimated height to use on your behalf. Setting the value to 0 disables estimated heights, which causes the table view to request the actual height for each cell. If your table uses self-sizing cells, the value of this property must not be 0.</p>
-<p>When using height estimates, the table view actively manages the contentOffset and contentSize properties inherited from its scroll view. Do not attempt to read or modify those properties directly.</p>
+<p>The default value is automaticDimension, which means that the table view selects an estimated height to use on your behalf. Setting the value to 0 disables estimated heights, which causes the table view to request the actual height for each cell. If your table uses self-sizing cells, the value of this property must not be 0.<br>When using height estimates, the table view actively manages the contentOffset and contentSize properties inherited from its scroll view. Do not attempt to read or modify those properties directly.</p>
 <footer><strong>estimatedRowHeight</strong></footer></blockquote>
+<a id="more"></a>
 <p><br><br><em>UITableView</em>引用预估高度机制是为了推迟未显示cell的高度计算工作，提高<em>UITableView</em>加载性能，很好的机制，但是在使用中可能会带来意外的bug。</p>
 <p>通过<em>storyboard</em>构建的订单列表页面，在xib中设置了<em>estimatedRowHeight</em>(默认开启、高度为auto)，在该页面触发<em>reloadData()</em>之后，发现有时候cell莫名的滚动到了其他位置，只能在<em>storyboard</em>中设置<em>estimatedRowHeight</em>为0或者代码中<em>tableView.estimatedRowHeight = 0</em>来关闭预估高度(<span style="color:red">不是在UITableViewDelegate中设置</span>)</p>
 <p>四个预估高度：</p>
