@@ -307,6 +307,306 @@
   
   
   <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/05/24/reloadData导致cell错乱/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/05/24/reloadData导致cell错乱/" itemprop="url">reloadData导致cell错乱</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-05-24T17:38:46+08:00">
+                2019-05-24
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/05/24/reloadData导致cell错乱/" class="leancloud_visitors" data-flag-title="reloadData导致cell错乱">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <blockquote><p>Providing a nonnegative estimate of the height of rows can improve the performance of loading the table view. If the table contains variable height rows, it might be expensive to calculate all their heights when the table loads. Estimation allows you to defer some of the cost of geometry calculation from load time to scrolling time.</p>
+<p>The default value is automaticDimension, which means that the table view selects an estimated height to use on your behalf. Setting the value to 0 disables estimated heights, which causes the table view to request the actual height for each cell. If your table uses self-sizing cells, the value of this property must not be 0.</p>
+<p>When using height estimates, the table view actively manages the contentOffset and contentSize properties inherited from its scroll view. Do not attempt to read or modify those properties directly.</p>
+<footer><strong>estimatedRowHeight</strong></footer></blockquote>
+<p><br><br><em>UITableView</em>引用预估高度机制是为了推迟未显示cell的高度计算工作，提高<em>UITableView</em>加载性能，很好的机制，但是在使用中可能会带来意外的bug。</p>
+<p>通过<em>storyboard</em>构建的订单列表页面，在xib中设置了<em>estimatedRowHeight</em>(默认开启、高度为auto)，在该页面触发<em>reloadData()</em>之后，发现有时候cell莫名的滚动到了其他位置，只能在<em>storyboard</em>中设置<em>estimatedRowHeight</em>为0或者代码中<em>tableView.estimatedRowHeight = 0</em>来关闭预估高度(<span style="color:red">不是在UITableViewDelegate中设置</span>)</p>
+<p>四个预估高度：</p>
+<ul>
+<li><em>UICollectionViewFlowLayout.estimatedItemSize</em></li>
+<li><em>UITableView.estimatedRowHeight</em></li>
+<li><em>UITableView.sectionHeaderHeight</em></li>
+<li>*UITableView.estimatedSectionFooterHeight</li>
+</ul>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/04/30/URLSession/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="zhouwk">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="zhouwk的个人笔记">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2019/04/30/URLSession/" itemprop="url">URLSession</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-04-30T13:55:17+08:00">
+                2019-04-30
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/iOS/" itemprop="url" rel="index">
+                    <span itemprop="name">iOS</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+             <span id="/2019/04/30/URLSession/" class="leancloud_visitors" data-flag-title="URLSession">
+               <span class="post-meta-divider">|</span>
+               <span class="post-meta-item-icon">
+                 <i class="fa fa-eye"></i>
+               </span>
+               
+                 <span class="post-meta-item-text">阅读次数&#58;</span>
+               
+                 <span class="leancloud-visitors-count"></span>
+             </span>
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p>距离51小长假还有不到4个小时，干等也是等，不如湿等吧- - -过一遍URLSession的API，平日里也是习惯了使用<a href="https://github.com/AFNetworking/AFNetworking" target="_blank" rel="noopener">AFNetworking</a>、<a href="https://github.com/Alamofire/Alamofire" target="_blank" rel="noopener">Alamofire</a>完成数据请求，很少有需要去看这些系统的东西了。</p>
+<p>URLSession提供了三种构造方式，分别是单利方式、携带配置信息、携带代理对象和任务队列:<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">shared</span>: <span class="title">URLSession</span> </span>&#123; <span class="keyword">get</span> &#125;    </span><br><span class="line"><span class="keyword">public</span> <span class="comment">/*not inherited*/</span> <span class="keyword">init</span>(configuration: <span class="type">URLSessionConfiguration</span>)</span><br><span class="line"><span class="keyword">public</span> <span class="comment">/*not inherited*/</span> <span class="keyword">init</span>(configuration: <span class="type">URLSessionConfiguration</span>, delegate: <span class="type">URLSessionDelegate</span>?, delegateQueue queue: <span class="type">OperationQueue</span>?)</span><br></pre></td></tr></table></figure><br>URLSessionConfiguration用于管理session的行为和策略，比如超时时间、缓冲策略、是否允许蜂窝数据请求等等，有如下三种类型：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 默认</span></span><br><span class="line"> <span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">var</span> `<span class="title">default</span>`: <span class="title">URLSessionConfiguration</span> </span>&#123; <span class="keyword">get</span> &#125;</span><br><span class="line"> <span class="comment">// 和.default类似，但是缓存、cookie、凭据无法使用了，无法存到磁盘中</span></span><br><span class="line"> <span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">var</span> <span class="title">ephemeral</span>: <span class="title">URLSessionConfiguration</span> </span>&#123; <span class="keyword">get</span> &#125;</span><br><span class="line"> <span class="comment">// 后台session, 典型的后台下载任务</span></span><br><span class="line"> <span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">func</span> <span class="title">background</span>(<span class="title">withIdentifier</span> <span class="title">identifier</span>: <span class="title">String</span>) -&gt; <span class="title">URLSessionConfiguration</span></span></span><br></pre></td></tr></table></figure><br><em>sessionObj.configuration</em>属性是只读的，所以设置session配置信息只能在构造session的时候，之后便不可可变这些配置信息，如果要改变，那也只能是在另外创建一个session了。通过<em>sessionObj.share</em>方式使session是没有配置信息的。<br>在构造会话的时候传入一个<em>URLSessionDataDelegate</em>对象，这样就可以获取会话进行的状态，同样<em>sessionObj.delegate</em>是只读的，只能在构造会话的时候设置。</p>
+<p>开启会话之后，便可以绑定会话任务<em>URLSessionTask</em>，通过调用不同的API创建不同类型的任务，如下四种：<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 将请求的数据存到内存中 sessionObj.dataTask(with:)</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">URLSessionDataTask</span> : <span class="title">URLSessionTask</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 上传任务 URLSessionDataTask的子类 sessionObj.dataTask.uploadTask(with:from:)</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">URLSessionUploadTask</span> : <span class="title">URLSessionDataTask</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">// 下载任务 </span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">URLSessionDownloadTask</span> : <span class="title">URLSessionTask</span> </span>&#123;&#125;</span><br><span class="line"><span class="comment">//  流任务，和指定主机端口或者服务器建立tcp/ip连接，streamTask(withHostName:port:) or streamTask(with:)</span></span><br><span class="line"><span class="keyword">open</span> <span class="class"><span class="keyword">class</span> <span class="title">URLSessionStreamTask</span> : <span class="title">URLSessionTask</span> </span>&#123;&#125;</span><br></pre></td></tr></table></figure><br>URLSessionDataTask类型的任务会将<br>任务创建之后便可以通过<em>sessionObj.resume()</em>开启任务，任务中的所有属性都是可以通过kvo来监听状态改变的,当我们发起一个一般的请求任务或者下载任务的时候，可以监听<em>countOfBytesReceived</em>来获取已经请求到数据的长度<br><figure class="highlight swift"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">task.addObserver(<span class="keyword">self</span>, forKeyPath: <span class="string">"countOfBytesReceived"</span>,</span><br><span class="line">                         options: .new,</span><br><span class="line">                         context: <span class="literal">nil</span>)</span><br></pre></td></tr></table></figure><br>会话任务提供了两种</p>
+<p>URLSessionDataTask<br><blockquote><p>A URL session task that returns downloaded data directly to the app in memory.</p>
+</blockquote><br>会直接把下载的数据到数据存在内容中，写demo的时候下载了一个800多M的文件，直接触发了内存警告，所以慎用它访问稍大的文件</p>
+
+          
+        
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/01/26/轻轻考医学审核被拒总结/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -410,26 +710,17 @@
 
       
         
-          
-            <blockquote><p>苹果虐我千百遍，我待苹果如初恋</p>
+          <blockquote><p>苹果虐我千百遍，我待苹果如初恋</p>
 <footer><strong>zhouwk -- 被苹果审核把脸按在地上狠狠摩擦的iOSer</strong></footer></blockquote>
 <img src="/2019/01/26/轻轻考医学审核被拒总结/1.gif">
-<p>虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一个半月的工作状态就是当日提交审核、次日被拒、被拒当天再次提审、再次日接着被拒，如此循环，几乎让我打算打退堂鼓了。</p>
-<p>终于1.0成功上线之后，我就开始了这篇审核趟雷笔记，但是越来越忙，便只有个开头搁置了，今天抽了个空完成它，刚好也想随便写些东西。</p>
-<p>APP的类型是在线教育的，包含了付费课程购买，所以很清晰的知道是要走内购的，但是毕竟30%的内购抽成，公司还是不太乐意承担的，于是尝试支付宝、微信，不出意外的被拒了<span style="color:red">3.1 PAYMENT</span>。</p>
-<p>初次被拒之后，为了先把APP上线(历史原因，已经比安卓晚了一两个月)，并没有直接接入内购，而是隐藏付费内容/付费UI，于是APP成了一个不包含付费课程的APP，提交审核，再次被拒。</p>
-<p>于是正式接入内购，但是接入内购的出发点并不单纯。我们发现市场同类型的APP依然在使用支付宝、微信，猜测是在1.0版本走了内购(相对而言1.0版本审核较严)，后续版本再换回支付宝、微信。于是我们打算带着这种想法接入内购，为了日后方便切换回支付宝、微信，我们在APP中保留了支付宝、微信的SDK和支付逻辑，提交审核被拒，同时又触犯了<span style="color: red">2.3.1 Don’t include any hidden or undocumented features in your app</span>。苹果发现了我们的行径，隐藏功能在苹果看来是很严重的，尤其是支付相关的，绕过苹果内购毕竟直接侵犯了苹果利益，接入一些审核群发现这样做绕过苹果内购的，很多被苹果给了<span style="color:red">2.1大礼包</span>，延期审核(听他们反馈延期半年的都有)，更为严重的直接14天通知封号了。现在想想，虽然此次被拒了，但是并没有给我们这些严厉处罚，也没有延期审核，依然是当天提交审核、次日被拒的高反馈效率  😑  很无奈。</p>
-<p>我们删除了支付宝、微信的支付逻辑，提交审核，再次被拒，反馈同样是违反了上述两个规则，当时就比较奇怪了，明明已经把发起支付宝、微信的逻辑都去掉了，换成了内购的逻辑，怎么还说我们企图隐藏第三方支付、绕过苹果内购呢，后来想到可能是SDK的问题，于是删除了支付宝的SDK，由于有微信分享，所以认为微信的SDK应该没问题。为了避免因为同样的原因被拒绝，我删除了项目中所有支付宝字样，和微信SDK的.h文件中的支付字样，提交审核，终于苹果认为我们不再违反上述的两条规则，但是结果还是被拒。</p>
-<p>此次被拒和接下来的一次被拒就是常见的bug问题，违反了<span style="color:red">2.1 App Completeness</span>，都发生在充值页面，先是在一定条件下loading不能消失掉，接下来的一次就是纯属自作聪明、搬起石头砸自己的脚，因为有些内购项目金额是比较大的，万元左右的，而这些内购项目必须手动一个一个加入到<em>iTunes connect</em>，于是我在获取请求内购商品信息的之后，加了一步和APP服务器价格比对的过程，如果价格不对的话，就提示价格异常，这个在我测试的时候是完全正常的、走得通的逻辑，但是审核给的反馈是点击所有的内购项目，都会出现价格异常的提示，懵了！！！难道的是苹果审核时候获取的价格是美元单位的？于是我把手机的地区、语言都设置成美国的，依旧没复现这种情况，真是实打实的自作聪明、搬起石头砸自己的脚。</p>
-<p>有一次被拒是因为提交审核的一张应用市场图包含了<span style="color:red">免费</span>字样。</p>
-<p>一次拒绝是APP的介绍中包含了支付的外部链接，实际说的是我们的官网，我们在APP的介绍中加入了官网地址，违反了内购相关的规则，修改过之后，接下来两次拒绝还是同样理由，起初是怎么都找不到，就在审核备注中写实在找不到官网链接，让审核人员告诉我们在哪个地方发现的，隔天审核人员打来电话，才知道<em>iTunes connect</em>中的APP介绍加了多语言，我们只去除了中文的，好吧，运营的锅！！！</p>
-<p>一次拒绝反馈是：APP有些页面并不是基于用户账号的，而APP在入口近强制了用户登录，于是做了游客使用。</p>
-<p>接下来的一次拒绝反馈是：内购不能强制用户登录，这真的让人无语了，因为自然而然的观点是没有账号你买个🐔儿啊，而且有些APP是内购强制登录的，好吧，苹果是爸爸！！我们又做了游客购买。</p>
-<p>最后一次拒绝也是最胆战心惊的一次，在这次提交审核当天的下午我突然发现一些HTML页面会偶然出现<span style="color:red">赌博、贷款、彩票</span>的内容，而不是本该出现的内容，出现这种情况的原因是用了小厂的短地址服务，服务厂商篡改了页面地址。于是赶紧让运营删这些东西，结果运营没当回事儿，次日公司年会的时候，结结实实的收到了2.1大礼包，洋洋洒洒列举了十条怀疑我们违规的地方，苹果认为我们的APP是一个马甲包，大家应该会知道苹果对马甲包的扼杀力度有多大吧，心凉凉，赶紧直接把有HTML相关功能的模块直接干掉，然后承认出现此次问题的原因(强调并非我们本意)，重新提交审核，进入延期审核状态，加了一些马甲包的群，很多人的基本观点是2.1基本没救了，账号都可能保不住了，延期审核几个月都有可能，彻底心凉凉，等了将近一周，本打算再不进入审核状态就在下周一毛线换bundle id重写提交，还好在周五进入了审核状态，周六通过了审核。</p>
-<p>至此苦逼的心惊胆战的1.0审核之路结束，到目前两三个月的时间又提交了5次更新，终于恢复正常状态：当天下午提交、次日早上通过。</p>
-<p>其实本来并没有写这篇笔记的必要，因为这些被拒的内容发生一次就基本不会忘记了，但是想想还是写写吧，算是一篇日记，记录下自己的心情。</p>
-
-          
+<p>虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一个半月的工作状态就是当日提交审核、次日被拒、被拒当天再次提审、再次日接着被拒，如此循环，几乎让我打算打退堂鼓了。<br>
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2019/01/26/轻轻考医学审核被拒总结/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -1547,320 +1838,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/10/状态栏的系统bug/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouwk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouwk的个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/10/状态栏的系统bug/" itemprop="url">状态栏的系统bug</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-10T13:43:15+08:00">
-                2018-10-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/10/状态栏的系统bug/" class="leancloud_visitors" data-flag-title="状态栏的系统bug">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>一般情况下，如果APP涉及到视频播放功能，就不可避免的会有播放页面的横竖屏切换功能，一般的处理方式都是在<em>general</em>面板中，选择需要支持的屏幕方向，然后<em>TabController-&gt;NavController-&gt;NotPlayerController</em>设置竖屏，在modal的<em>PlayerController</em>设置支持横屏。<br>在<em>AppDelete</em>文件重新设置<em>window</em>，并且使用纯代码方式创建TabController及其RootController，结果发现在只支持竖屏的页面，状态栏还是自动三个方向旋转，即页面不旋转、导航栏旋转的诡异现象，代码如下<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">override var preferredInterfaceOrientationForPresentation: UIInterfaceOrientation &#123;</span><br><span class="line">    return .portrait</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">override var supportedInterfaceOrientations: UIInterfaceOrientationMask &#123;</span><br><span class="line">   return .portrait</span><br><span class="line">&#125;</span><br><span class="line">    </span><br><span class="line">override var shouldAutorotate: Bool &#123;</span><br><span class="line">   return false</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure><br>尝试发现，如果在<em>APPDelegate</em>中重新设置了<em>window</em>，要把<em>general</em>面板的中<em>Main Interface</em>置空，bug解决。<br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/10/状态栏的系统bug/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2018/10/08/关于self和super的一道小题/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="zhouwk">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="zhouwk的个人笔记">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2018/10/08/关于self和super的一道小题/" itemprop="url">关于self和super的一道小题</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-10-08T15:07:48+08:00">
-                2018-10-08
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/iOS/" itemprop="url" rel="index">
-                    <span itemprop="name">iOS</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-             <span id="/2018/10/08/关于self和super的一道小题/" class="leancloud_visitors" data-flag-title="关于self和super的一道小题">
-               <span class="post-meta-divider">|</span>
-               <span class="post-meta-item-icon">
-                 <i class="fa fa-eye"></i>
-               </span>
-               
-                 <span class="post-meta-item-text">阅读次数&#58;</span>
-               
-                 <span class="leancloud-visitors-count"></span>
-             </span>
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>现有基类<em>Parent</em>如下：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">#import &quot;Parent.h&quot;</span><br><span class="line"></span><br><span class="line">@implementation Parent</span><br><span class="line">- (void)test&#123;</span><br><span class="line"></span><br><span class="line">    NSLog(@&quot;%@&quot;,[self class]);</span><br><span class="line">    NSLog(@&quot;%@&quot;,[self superclass]);</span><br><span class="line">    NSLog(@&quot;%@&quot;,[super class]);</span><br><span class="line">&#125;</span><br><span class="line">@end</span><br></pre></td></tr></table></figure><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2018/10/08/关于self和super的一道小题/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
   </section>
 
   
@@ -1915,7 +1892,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -1937,7 +1914,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>

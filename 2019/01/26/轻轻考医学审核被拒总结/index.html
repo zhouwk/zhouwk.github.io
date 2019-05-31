@@ -88,7 +88,7 @@
 <meta property="og:description" content="苹果虐我千百遍，我待苹果如初恋 zhouwk -- 被苹果审核把脸按在地上狠狠摩擦的iOSer  虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一">
 <meta property="og:locale" content="zh-Hans">
 <meta property="og:image" content="http://yoursite.com/2019/01/26/轻轻考医学审核被拒总结/1.gif">
-<meta property="og:updated_time" content="2019-04-28T05:56:57.022Z">
+<meta property="og:updated_time" content="2019-04-30T05:57:22.389Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="轻轻考医学审核被拒总结">
 <meta name="twitter:description" content="苹果虐我千百遍，我待苹果如初恋 zhouwk -- 被苹果审核把脸按在地上狠狠摩擦的iOSer  虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一">
@@ -422,8 +422,7 @@
         <blockquote><p>苹果虐我千百遍，我待苹果如初恋</p>
 <footer><strong>zhouwk -- 被苹果审核把脸按在地上狠狠摩擦的iOSer</strong></footer></blockquote>
 <img src="/2019/01/26/轻轻考医学审核被拒总结/1.gif">
-<p>虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一个半月的工作状态就是当日提交审核、次日被拒、被拒当天再次提审、再次日接着被拒，如此循环，几乎让我打算打退堂鼓了。</p>
-<p>终于1.0成功上线之后，我就开始了这篇审核趟雷笔记，但是越来越忙，便只有个开头搁置了，今天抽了个空完成它，刚好也想随便写些东西。</p>
+<p>虽说苹果审核相对安卓而言严格一些、条条框框多一些，但是其实入行到现在，经手的APP说多不多说少不少也有几个了，审核经历都还是蛮顺利的，即使偶尔被拒，也能很清晰的知道问题出现在什么地方。但是两个月前换工作之后，接手目前公司的APP，1.0版本的提交审核经历真滴是让我吐了，历经了一个半月，被拒了十几次，一个半月的工作状态就是当日提交审核、次日被拒、被拒当天再次提审、再次日接着被拒，如此循环，几乎让我打算打退堂鼓了。<br><a id="more"></a><br>终于1.0成功上线之后，我就开始了这篇审核趟雷笔记，但是越来越忙，便只有个开头搁置了，今天抽了个空完成它，刚好也想随便写些东西。</p>
 <p>APP的类型是在线教育的，包含了付费课程购买，所以很清晰的知道是要走内购的，但是毕竟30%的内购抽成，公司还是不太乐意承担的，于是尝试支付宝、微信，不出意外的被拒了<span style="color:red">3.1 PAYMENT</span>。</p>
 <p>初次被拒之后，为了先把APP上线(历史原因，已经比安卓晚了一两个月)，并没有直接接入内购，而是隐藏付费内容/付费UI，于是APP成了一个不包含付费课程的APP，提交审核，再次被拒。</p>
 <p>于是正式接入内购，但是接入内购的出发点并不单纯。我们发现市场同类型的APP依然在使用支付宝、微信，猜测是在1.0版本走了内购(相对而言1.0版本审核较严)，后续版本再换回支付宝、微信。于是我们打算带着这种想法接入内购，为了日后方便切换回支付宝、微信，我们在APP中保留了支付宝、微信的SDK和支付逻辑，提交审核被拒，同时又触犯了<span style="color: red">2.3.1 Don’t include any hidden or undocumented features in your app</span>。苹果发现了我们的行径，隐藏功能在苹果看来是很严重的，尤其是支付相关的，绕过苹果内购毕竟直接侵犯了苹果利益，接入一些审核群发现这样做绕过苹果内购的，很多被苹果给了<span style="color:red">2.1大礼包</span>，延期审核(听他们反馈延期半年的都有)，更为严重的直接14天通知封号了。现在想想，虽然此次被拒了，但是并没有给我们这些严厉处罚，也没有延期审核，依然是当天提交审核、次日被拒的高反馈效率  😑  很无奈。</p>
@@ -475,6 +474,10 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/04/30/URLSession/" rel="prev" title="URLSession">
+                URLSession <i class="fa fa-chevron-right"></i>
+              </a>
             
           </div>
         </div>
@@ -554,7 +557,7 @@
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">26</span>
+                  <span class="site-state-item-count">28</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -576,7 +579,7 @@
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">25</span>
+                  <span class="site-state-item-count">26</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
